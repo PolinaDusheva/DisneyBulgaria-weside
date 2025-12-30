@@ -375,67 +375,8 @@ footer {
     .search-box {
         width: 100% !important;
     }
-
-    /* 3. СТРАНИЦА: КОНТАКТИ (Оптимизация за широкия контейнер) */
-    .glass-container {
-        grid-template-columns: 1fr !important; /* Стакваме формата и инфото едно под друго */
-        max-height: none !important;
-        width: 95% !important;
-        margin: 20px auto;
-        overflow-y: visible !important;
-    }
-
-    .contact-form-side, .contact-info-side {
-        padding: 30px 20px !important;
-        border-right: none !important;
-    }
-
-    body.contact-page {
-        overflow-y: auto !important; /* Позволяваме скрол на телефон */
-        height: auto !important;
-    }
-
-    /* 4. СТРАНИЦА: ЗА НАС / ИНДЕКС (Оптимизация за грида) */
-    /* .about-grid {
-        flex-direction: column !important;
-        text-align: center;
-        gap: 30px;
-    }
-
-    .about-image img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    .achievements-box {
-        flex-direction: column;
-        gap: 25px;
-    }
-
-    5. HERO СЕКЦИЯ (Заглавия)
-    .hero-title {
-        font-size: 2.8rem !important;
-        margin-top: 40px;
-    }
-    } */
-}
-
-/* --- ЕКСТРЕМНО МАЛКИ ЕКРАНИ (Телефони под 480px) --- */
-@media (max-width: 480px) {
-    .gallery-grid {
-        grid-template-columns: 1fr !important; /* 1 снимка на ред на телефон */
-    }
-
-    .hero-title {
-        font-size: 2.2rem !important;
-    }
-
-    .pagination {
-        flex-wrap: wrap;
-        gap: 8px;
-    }
-}
-
+    /* ////////////////////////////////////////////СТРАНИЦА: ЗА НАС ////////////////////////////////////////////*/
+}   
 /*//////////////////////////////////////////// --- СТРАНИЦА НОВИНИ --- ////////////////////////////////////////////*/
 .news-page {
     background: linear-gradient(135deg, #071c5c 0%, #575d8a 100%);
