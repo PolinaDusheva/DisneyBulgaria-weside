@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакти | Disney България</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* --- UNIVERSE JOURNEY STYLES --- */
+.universe-journey {
+    background: linear-gradient(135deg, #071c5c 0%, #575d8a 100%);
+    
+}
+
+.universe-hero-section {
+    position: relative;
+    /* Височина на секцията - можеш да променяш (напр. 50vh за половината екран) */
+    height: 60vh; 
+    min-height: 400px; /* Гарантира, че няма да е твърде ниска на телефони */
+    margin-top: 75px; /* Място под навигацията */
+    margin-bottom: 20px;
+    /* ФОНОВА СНИМКА: Замени URL-а с пътя до твоята снимка */
+    background: url('pictures/disney-universe-hero-banner.jpg') no-repeat center center/cover;
+    
+    /* Flexbox за перфектно центриране на текста */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.8);
+}
+
+/* Тъмен слой за по-добър контраст на текста */
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Тъмносин полупрозрачен слой */
+    background: rgba(6, 36, 97, 0.6); 
+}
+
+.hero-content-center {
+    position: relative;
+    z-index: 2; /* Текстът да е над слоя */
+    padding: 70px 20px;
+}
+
+/* Стил за светещото заглавие */
+.glow-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem;
+    color: #fbe496;
+    margin-bottom: 15px;
+    /* Магическо златно сияние */
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 0 40px rgba(212, 175, 55, 0.3);
+}
+
+/* Стил за подзаглавието */
+.hero-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+/* Адаптивност за по-малки екрани */
+@media (max-width: 768px) {
+    .universe-hero-section { height: 500px; }
+    .glow-title-hero { font-size: 56px; }
+    .hero-subtitle { font-size: 18px; }
+}
+
+.universe-section {
+    padding: 30px 40px;
+}
+.universe-store-container{
+    align-items: center;
+}
+/* Флекс контейнер за редуване */
+.universe-flex {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+/* Редуване на секциите */
+.universe-section.reverse .universe-flex {
+    flex-direction: row-reverse;
+}
+p{
+    text-align: justify;
+}
+
+.journey-image {
+    flex: 1;
+}
+
+.journey-image img {
+    width: 100%;
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.journey-text {
+    flex: 1;
+    padding: 50px !important; /* Използваме glass-card стила ти */
+}
+
+.category {
+    color: #d4af37;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.journey-text h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 40px;
+    color: #fbe496;
+    margin-bottom: 20px;
+}
+
+.magic-link {
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.magic-link:hover {
+    color: white;
+    transform: translateX(10px);
+}
+
+/* Стил за кръга със статистики */
+.stats-circle {
+    width: 300px;
+    height: 300px;
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    background: rgba(212, 175, 55, 0.05);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+/* Адаптивност */
+@media (max-width: 900px) {
+    .universe-flex, .universe-section.reverse .universe-flex {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .journey-text {
+        text-align: center;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav-container">
+            <ul class="nav">
+                <li class="nav-item"><a href="index.html" class="nav-link-item">Начало</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link-item">За нас</a></li>
+                <li class="nav-item"><a href="universe.html" class="nav-link-item">Вселена</a></li>
+                <li class="nav-logo">
+                    <a href="index.html">
+                        <img src="pictures/logo-white.png" alt="Disney Logo Магия">
+                    </a>
+                </li>
+                <li class="nav-item"><a href="news.html" class="nav-link-item">Новини</a></li>
+                <li class="nav-item"><a href="gallery.html" class="nav-link-item">Галерия</a></li>
+                <li class="nav-item"><a href="contacts.html" class="nav-link-item">Контакти</a></li>
+            </ul>
+            </div>
+    </header>
+    <main class="universe-journey">
+        <section class="universe-hero-section">
+            <div class="hero-overlay">
+                 <div class="hero-content-center">
+                    <h1 class="glow-title">Една Вселена, безкрайни истории</h1>
+                    <p class="hero-subtitle">Открийте магията във всяка нейна форма</p>
+                </div>
+            </div>
+        </section>
+    
+        <section class="universe-section">
+            <div class="container universe-flex">
+                <div class="journey-image">
+                    <img src="pictures/coco.JPG" alt="Disney Productions">
+                </div>
+                <div class="journey-text glass-card">
+                    <span class="category">Продукции</span>
+                    <h2>Кино и Disney+</h2>
+                    <p>Където историите оживяват и вдъхновяват поколения по целия свят. 
+                        През десетилетията Disney се утвърди като лидер в иновациите, 
+                        превръщайки класическата анимация в модерно кино изкуство. 
+                        Днес портфолиото на студиото обхваща не само вечните приказки, 
+                        но и епичните светове на Pixar, Marvel и Star Wars. 
+                        Киното на Disney съчетава най-новите технологии с дълбоки човешки послания, 
+                        правейки го предпочитан избор за качествено семейно забавление.</p>
+                    <a href="#" class="magic-link">Виж всички продукции →</a>
+                </div>
+            </div>
+        </section>
+    
+        <section class="universe-section reverse">
+            <div class="container universe-flex">
+                <div class="journey-image">
+                    <img src="pictures/disneyland-mikiMouse.jpg" alt="Disney Parks">
+                </div>
+                <div class="journey-text glass-card">
+                    <span class="category">Дестинации</span>
+                    <h2>Магическите Паркове</h2>
+                    <p>Парковете на Disney не са просто дестинация за почивка, 
+                        те са мястото, където границата между въображението и 
+                        реалността изчезва. Тук всеки гост, независимо от възрастта си, 
+                        може да прекрачи прага на любимите си истории, да прегърне любимите 
+                        си герои и да изпита истинското вълшебство. От емблематичния замък на 
+                        Пепеляшка до вълнуващите нови светове, това е пространството, създадено 
+                        за усмивки и спомени, които остават за цял живот.</p>
+                    <a href="#" class="magic-link">Прочети повече →</a>
+                </div>
+            </div>
+        </section>
+    
+        <section class="universe-section">
+            <div class="container universe-flex">
+                <div class="journey-image">
+                    <div class="stats-circle">
+                        <h3>$263M+</h3>
+                        <p>Дарения</p>
+                    </div>
+                </div>
+                <div class="journey-text glass-card">
+                    <span class="category">Въздействие</span>
+                    <h2>Нашите Инициативи</h2>
+                    <p>Грижим се за природата и подкрепяме децата по света чрез над 165 000 изпълнени желания.</p>
+                </div>
+            </div>
+        </section>
+    
+        <!-- <section class="universe-section reverse">
+            <div class="universe-store-container">
+                <h2>Вземете магията у дома</h2>
+                <p>Открийте ексклузивни продукти и се включете в нашите конкурси.</p>
+                <div class="btn-group">
+                    <a href="#" class="magic-button">Магазин</a>
+                </div>
+            </div>
+        </section> -->
+    </main>
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Начало</a>
+            <a href="about.html">За нас</a>
+            <a href="gallery.html">Галерия</a>
+            <a href="contacts.html">Контакти</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank" class="social-circle">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" class="social-circle">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://tiktok.com" target="_blank" class="social-circle">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" class="social-circle">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+         </div>
+        <p style="font-size: 13px; margin-top: 20px; opacity: 0.6;">
+            &copy; 2025 Курсов проект: Disney България. Изработено от Полина Душева.
+        </p>
+    </footer>
+</body>
+</html>

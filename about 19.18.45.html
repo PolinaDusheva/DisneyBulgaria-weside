@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>За нас | Disney България</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* --- ОСНОВНИ КОРЕКЦИИ ЗА ЗА НАС --- */
+.about-page{
+    background: linear-gradient(135deg, #071c5c 0%, #575d8a 100%);
+}
+.about-hero {
+    position: relative;
+    /* Височина на секцията - можеш да я променяш */
+    height: 60vh; 
+    min-height: 400px;
+    /* Път към твоята снимка */
+    background: url('pictures/about-hero.JPG') no-repeat center center/cover;
+    /* Място под навигацията (ако е фиксирана) */
+    margin-top: 75px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.8);
+}
+
+/* Тъмен слой върху снимката за контраст */
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(6, 36, 97, 0.6); /* Тъмносин полупрозрачен слой */
+}
+
+.hero-content-about {
+    position: relative;
+    z-index: 2; /* Текстът да е над слоя */
+}
+
+/* Заглавие в Hero секцията */
+.about-hero-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem;
+    color: #d4af37;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+    margin-bottom: 10px;
+}
+
+/* Подзаглавие */
+.about-hero-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Важно: Намаляваме отстъпа на основното съдържание, защото вече имаме Hero */
+.about-main-content {
+    padding-top: 50px !important; /* Беше 150px, сега го намаляваме */
+}
+
+/* Адаптивност за по-малки екрани */
+@media (max-width: 768px) {
+    .about-hero { height: 50vh; }
+    .about-hero-title { font-size: 3.5rem; }
+    .about-hero-subtitle { font-size: 1.2rem; }
+}
+.container {
+    max-width: 1200px; /* Фиксирана ширина за десктоп */
+    margin: 0 auto;    /* Центриране в средата */
+    padding: 0 40px;
+}
+
+.about-main-content {
+    padding-top: 150px; /* Място под навигацията */
+}
+
+/* --- ГРИД СИСТЕМА ЗА СЪДЪРЖАНИЕТО --- */
+.mission-vision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Две колони */
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Три колони */
+    gap: 25px;
+    text-align: center;
+}
+
+.value-box i {
+    font-size: 2.5rem;
+    color: #d4af37;
+    margin-bottom: 15px;
+    display: block; /* Поставя иконата над текста */
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+/* --- ХРОНОЛОГИЯ (TIMELINE) --- */
+.history-timeline {
+    border-left: 2px solid #d4af37;
+    margin: 40px auto;
+    padding-left: 40px;
+    max-width: 800px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.marker {
+    position: absolute;
+    left: -51px;
+    top: 5px;
+    width: 18px;
+    height: 18px;
+    background: #062461;
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+}
+
+.glow-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    color: #fbe496;
+    text-align: center;
+    margin: 50px 0;
+    text-shadow: 0 0 10px #d4af37;
+}
+    /* СТРАНИЦА: КОНТАКТИ (Оптимизация за широкия контейнер) */
+    .glass-container {
+        grid-template-columns: 1fr !important; /* Стакваме формата и инфото едно под друго */
+        max-height: none !important;
+        width: 95% !important;
+        margin: 20px auto;
+        overflow-y: visible !important;
+    }
+
+    .contact-form-side, .contact-info-side {
+        padding: 30px 20px !important;
+        border-right: none !important;
+    }
+
+    body.contact-page {
+        overflow-y: auto !important; /* Позволяваме скрол на телефон */
+        height: auto !important;
+    }
+    </style>
+</head>
+<body class="about-page">
+
+    <header class="header">
+        <div class="nav-container">
+            <ul class="nav">
+                <li class="nav-item"><a href="index.html" class="nav-link-item">Начало</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link-item">За нас</a></li>
+                <li class="nav-item"><a href="universe.html" class="nav-link-item">Вселена</a></li>
+                <li class="nav-logo">
+                    <a href="index.html">
+                        <img src="pictures/logo-white.png" alt="Disney Logo Магия">
+                    </a>
+                </li>
+                <li class="nav-item"><a href="news.html" class="nav-link-item">Новини</a></li>
+                <li class="nav-item"><a href="gallery.html" class="nav-link-item">Галерия</a></li>
+                <li class="nav-item"><a href="contacts.html" class="nav-link-item">Контакти</a></li>
+            </ul>
+        </div>
+    </header>
+    <section class="about-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content-about">
+            <h1 class="section-title">Нашата История</h1>
+            <p class="about-hero-subtitle">Където мечтите срещат реалността</p>
+        </div>
+    </section>
+    <main class="about-main-content">
+        <!-- <div class="about-hero">
+            <img class="about-hero-img" src="pictures/about-hero-banner.JPG" alt="about-hero">
+        </div> -->
+        <div class="container">
+            <div class="mission-vision-grid">
+                <div class="glass-card">
+                    <h2>Нашата Мисия</h2>
+                    <p>Да забавляваме, информираме и вдъхновяваме хората по целия свят чрез силата на ненадминатото разказване на истории.</p>
+                </div>
+                <div class="glass-card">
+                    <h2>Нашата Визия</h2>
+                    <p>Да бъдем водещ световен производител и доставчик на развлечения, използвайки иновативни технологии и креативност.</p>
+                </div>
+            </div>
+    
+            <h2 class="glow-title">Магическите Стълбове</h2>
+            <div class="values-grid">
+                <div class="value-box">
+                    <i class="fas fa-wand-magic-sparkles"></i>
+                    <h3>Креативност</h3>
+                    <p>Поставяме въображението в центъра на всичко, което правим.</p>
+                </div>
+                <div class="value-box">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Иновации</h3>
+                    <p>Използваме най-новите технологии, за да създаваме нови светове.</p>
+                </div>
+                <div class="value-box">
+                    <i class="fas fa-heart"></i>
+                    <h3>Отговорност</h3>
+                    <p>Грижим се за природата и подкрепяме децата по света.</p>
+                </div>
+            </div>
+    
+            <h2 class="glow-title">Пътят на Магията</h2>
+            <div class="history-timeline">
+                <div class="timeline-item">
+                    <div class="marker"></div>
+                    <div class="time-content">
+                        <span class="year">1923</span>
+                        <p>Основаване на компанията от Уолт и Рой Дисни.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="marker"></div>
+                    <div class="time-content">
+                        <span class="year">1928</span>
+                        <p>Премиерата на „Параходът Уили“ и раждането на Мики Маус.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="marker"></div>
+                    <div class="time-content">
+                        <span class="year">1937</span>
+                        <p>„Снежанка и седемте джуджета“ – първият пълнометражен анимационен филм.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="marker"></div>
+                    <div class="time-content">
+                        <span class="year">1955</span>
+                        <p>Отваря врати първият Disneyland в Калифорния.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Начало</a>
+            <a href="about.html">За нас</a>
+            <a href="gallery.html">Галерия</a>
+            <a href="contacts.html">Контакти</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank" class="social-circle">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" class="social-circle">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://tiktok.com" target="_blank" class="social-circle">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" class="social-circle">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+         </div>
+        <p class="copyright">
+            &copy; 2025 Курсов проект: Disney България. Изработено от Полина Душева.
+        </p>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
