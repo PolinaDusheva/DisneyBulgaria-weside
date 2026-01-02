@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакти | Disney България</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat:wght@300;400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+    <style>
+        /* --- СПЕЦИФИЧНИ СТИЛОВЕ ЗА КОНТАКТИ --- */
+        body {
+            /* Заменяме плътния цвят със снимка на цял екран */
+            background: url('pictures/contact-background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Тъмен филтър върху снимката, за да се чете текста */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(4, 22, 58, 0.6); /* Полупрозрачен тъмен слой */
+            z-index: -1;
+        }
+
+        .main-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 120px 20px 80px 20px; /* Място за навигацията */
+        }
+
+        /* ЕДИННИЯТ ШИРОК КОНТЕЙНЕР (GLASSMORPHISM) */
+        .glass-container {
+            width: 100%;
+            max-width: 1000px;
+            max-height: 80vh; /* Много широк */
+            background: rgba(255, 255, 255, 0.01); /* Леко прозрачно бяло */
+            backdrop-filter: blur(5px); /* Ефект на матирано стъкло */
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(212, 175, 55, 0.3); /* Златна фина рамка */
+            border-radius: 30px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr; /* Лявата част е по-широка */
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+
+        /* Секция с формата (Ляво) */
+        .contact-form-side {
+            padding: 60px;
+            border-right: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        /* Секция с инфо и карта (Дясно) */
+        .contact-info-side {
+            padding: 60px;
+            background: rgba(0, 0, 0, 0.2); /* Малко по-тъмно дясно за контраст */
+        }
+
+        h2 {
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Дизайн на входните полета */
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            color: #fbe496;
+        }
+
+        .input-field {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 15px;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #d4af37;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Съобщения за грешки */
+        .error-msg {
+            color: #ff6b6b;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            font-weight: bold;
+            display: none; /* Скрити по подразбиране */
+        }
+
+        /* Инфо елементи */
+        .info-block {
+            margin-bottom: 15px;
+            
+        }
+
+        .info-block p {
+            font-size: 1.1rem;
+            margin-top: 5px;
+            padding: 10px 12px;
+        }
+
+        .map-box {
+            width: 110%;
+            height: 170px;
+            border-radius: 15px;
+            border: 1px solid #d4af37;
+            margin-top: 10px;
+        }
+
+        /* Адаптивност за малки екрани */
+        @media (max-width: 900px) {
+            .glass-container {
+            grid-template-columns: 1fr; /* Една колона */
+            max-height: none; /* Махаме ограничението за височина */
+            overflow-y: visible;
+            width: 95%;
+        }
+
+        .contact-form-side, .contact-info-side {
+            padding: 30px 20px;
+            border-right: none; 
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        body {
+            overflow: auto; /* Позволяваме скролване на страницата на телефон */
+            height: auto;
+        }
+    }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="mobile-logo">
+                <a href="index.html">
+                    <img src="pictures/logo-white.png" alt="Disney Logo">
+                </a>
+            </div>
+    
+            <ul class="nav">
+                <li class="nav-item"><a href="index.html" class="nav-link-item">Начало</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link-item">За нас</a></li>
+                <li class="nav-item"><a href="universe.html" class="nav-link-item">Вселена</a></li>
+                
+                <li class="nav-logo">
+                    <a href="index.html">
+                        <img src="pictures/logo-white.png" alt="Disney Logo">
+                    </a>
+                </li>
+    
+                <li class="nav-item"><a href="news.html" class="nav-link-item">Новини</a></li>
+                <li class="nav-item"><a href="gallery.html" class="nav-link-item">Галерия</a></li>
+                <li class="nav-item"><a href="contacts.html" class="nav-link-item">Контакти</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+        <div class="glass-container">
+            
+            <div class="contact-form-side">
+                <h2>Пишете ни</h2>
+                <form id="disneyContactForm" novalidate>
+                    <div class="input-group">
+                        <label>ВАШЕТО ИМЕ</label>
+                        <input type="text" id="userName" class="input-field" placeholder="Мики Маус">
+                        <div class="error-msg" id="nameError">Името трябва да е поне 3 символа!</div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>E-MAIL АДРЕС</label>
+                        <input type="email" id="userEmail" class="input-field" placeholder="mickey@magic.com">
+                        <div class="error-msg" id="emailError">Въведете валиден имейл адрес!</div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>ВАШЕТО СЪОБЩЕНИЕ</label>
+                        <textarea id="userMessage" class="input-field" rows="4" placeholder="Разкажете ни за вашата магия..."></textarea>
+                        <div class="error-msg" id="messageError">Съобщението трябва да е поне 10 символа!</div>
+                    </div>
+
+                    <button type="submit" class="magic-button" style="width: 100%;">ИЗПРАТИ</button>
+                </form>
+            </div>
+
+            <div class="contact-info-side">
+                <h2>Контакти</h2>
+                <div class="info-block">
+                    <label style="color: #d4af37; font-weight: bold;">АДРЕС</label>
+                    <p>ул. „Вълшебен свят“ №1<br>София, България</p>
+                </div>
+                <div class="info-block">
+                    <label style="color: #d4af37; font-weight: bold;">ТЕЛЕФОН</label>
+                    <p>+359 800 123 456</p>
+                </div>
+                <div class="info-block">
+                    <label style="color: #d4af37; font-weight: bold;">РАБОТНО ВРЕМЕ</label>
+                    <p>Всеки ден: 09:00 - 18:00 ч.</p>
+                </div>
+
+                <iframe class="map-box" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2932.454228308426!2d23.3218675!3d42.6977082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa856db56c0733%3A0x7b587a8f895a9478!2z0KHQvtGE0LjRjw!5e0!3m2!1sbg!2sbg!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+        </div>
+    </div>
+    <footer>
+        <div class="footer-links">
+            <a href="index.html">Начало</a>
+            <a href="about.html">За нас</a>
+            <a href="gallery.html">Галерия</a>
+            <a href="contacts.html">Контакти</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank" class="social-circle">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" class="social-circle">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://tiktok.com" target="_blank" class="social-circle">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" class="social-circle">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+         </div>
+        <p style="font-size: 0.8rem; margin-top: 20px; opacity: 0.6;">
+            &copy; 2025 Курсов проект: Disney България. Изработено от Полина Душева.
+        </p>
+    </footer>
+
+    <script>
+        document.getElementById('disneyContactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Спира изпращането, за да проверим полетата
+            
+            let isFormValid = true;
+
+            // Валидация за Име
+            const nameField = document.getElementById('userName');
+            const nameError = document.getElementById('nameError');
+            if (nameField.value.trim().length < 3) {
+                nameError.style.display = 'block';
+                nameField.style.borderColor = '#ff6b6b';
+                isFormValid = false;
+            } else {
+                nameError.style.display = 'none';
+                nameField.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+            }
+
+            // Валидация за Имейл
+            const emailField = document.getElementById('userEmail');
+            const emailError = document.getElementById('emailError');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailField.value)) {
+                emailError.style.display = 'block';
+                emailField.style.borderColor = '#ff6b6b';
+                isFormValid = false;
+            } else {
+                emailError.style.display = 'none';
+                emailField.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+            }
+
+            // Валидация за Съобщение
+            const messageField = document.getElementById('userMessage');
+            const messageError = document.getElementById('messageError');
+            if (messageField.value.trim().length < 10) {
+                messageError.style.display = 'block';
+                messageField.style.borderColor = '#ff6b6b';
+                isFormValid = false;
+            } else {
+                messageError.style.display = 'none';
+                messageField.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+            }
+
+            // Ако всичко е наред
+            if (isFormValid) {
+                alert('✨ Магическото съобщение е изпратено успешно! ✨');
+                this.reset(); // Изчиства формата
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,973 @@
+/* ===================================================================
+   GLOBAL STYLES - Used on ALL pages
+   =================================================================== */
+
+/* --- RESET & BASE STYLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #071c5c 0%, #575d8a 100%);
+    color: white;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- GLOBAL NAVIGATION --- */
+.nav-container {
+    display: flex;
+    width: 100%;
+    height: 75px;
+    background: #04163a;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid rgba(212, 175, 55, 0.6);
+}
+
+/* Магическата плавна арка */
+.nav-container::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -40px;
+    width: 220px;
+    height: 80px;
+    background: #04163a;
+    border-radius: 50%;
+    border: 2px solid rgba(212, 175, 55, 0.6);
+    border-top: none;
+    z-index: -1;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    gap: 35px;
+    margin: 0 auto;
+    list-style: none;
+    height: 100%;
+}
+
+.nav-logo img {
+    height: 80px;
+    width: auto;
+    position: relative;
+    z-index: 1002;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    margin-top: 40px;
+    padding-left: 37px;
+}
+
+.nav-logo img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.8));
+}
+
+.nav-link-item {
+    text-decoration: none;
+    color: white;
+    font-family: 'Lucida Sans';
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-left: 40px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.nav-link-item:hover {
+    color: #e5d397;
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+}
+
+.mobile-menu-toggle {
+    display: none !important;
+}
+.mobile-logo {
+    display: none;
+}
+
+/* --- GLOBAL FOOTER --- */
+footer {
+    background: #04163a;
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 1px solid #d4af37;
+}
+
+.footer-links {
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    color: #d4af37;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.social-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid rgba(212, 175, 55, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #d4af37;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.social-circle:hover {
+    background: #d4af37;
+    color: #062461;
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+    border-color: #fff;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    margin-top: 20px;
+    opacity: 0.6;
+}
+
+/* --- GLOBAL COMPONENTS --- */
+/* Magic Button (used on multiple pages) */
+.magic-button {
+    position: relative;
+    z-index: 15;
+    display: inline-block;
+    padding: 15px 45px;
+    background: linear-gradient(135deg, #fbe496 0%, #d7ae3f 100%);
+    color: #062461;
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3), 0 0 20px rgba(212, 175, 55, 0.5);
+    transition: all 0.3s ease;
+    border: 2px solid #fff;
+}
+
+.magic-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5), 0 0 30px rgba(212, 175, 55, 0.8);
+    background: #fff;
+    color: #d4af37;
+}
+
+/* Section Title (used on multiple pages) */
+.section-title {
+    font-family: 'Great Vibes', cursive !important;
+    font-size: 4.5rem !important; /* Увеличен размер като на скрийншота */
+    color: #dbcb99 !important;
+    margin-bottom: 35px !important;
+    text-align: center !important; /* Ляво подравняване за двата раздела */
+    text-shadow: 0 0 15px rgba(88, 76, 35, 0.8), 2px 2px 10px rgba(0,0,0,0.6) !important;
+    width: 100%;
+    display: block;
+}
+
+/* Modal (used on multiple pages) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: rgba(6, 36, 97, 0.95);
+    margin: 5% auto;
+    padding: 40px;
+    border: 2px solid #d4af37;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 20px;
+    position: relative;
+    max-height: 85vh;
+    overflow-y: auto;
+    color: white;
+}
+
+.close-modal {
+    position: absolute;
+    right: 25px;
+    top: 15px;
+    color: #d4af37;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-modal:hover {
+    color: white;
+}
+
+#modalImg {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+#modalTitle {
+    font-family: 'Cinzel', serif;
+    color: #d4af37;
+    margin-bottom: 15px;
+}
+
+#modalFullText {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-top: 20px;
+}
+
+/* --- GLOBAL UTILITY CLASSES --- */
+.container-main {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.container-title {
+    color: #d4af37;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.achievements-box {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Разстояние между кръговете */
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    width: 200px; /* Еднаква ширина */
+    height: 200px; /* Еднаква височина за идеален кръг */
+    border: 3px solid #d4af37; /* Златна рамка */
+    border-radius: 50%; /* Прави елемента кръг */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05); /* Леко прозрачен фон */
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); /* Златно сияние */
+    transition: all 0.4s ease;
+}
+
+/* Ефект при посочване на кръга */
+.stat-item:hover {
+    transform: scale(1.1) rotate(5deg);
+    background: rgba(212, 175, 55, 0.1);
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+    border-color: #fbe496;
+}
+
+.stat-item h3 {
+    color: #fbe496;
+    font-size: 2.5rem;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+}
+
+.stat-item p {
+    color: white;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+/* ===================================================================
+   INDEX/HOME PAGE STYLES
+   =================================================================== */
+/* Hero Section with Video */
+.index-page{
+    padding-top: 40px;
+    background: linear-gradient(135deg, #101d52 0%, #202c4c 100%);
+}
+.index-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.8);
+}
+
+#bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%) scale(1.2);
+    object-fit: cover;
+    z-index: -1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+.index-hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+}
+
+.index-hero-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5.5rem;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.8), 2px 2px 10px rgba(0,0,0,0.6);
+}
+.brands-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 40px 20px;
+    flex-wrap: wrap;
+}
+
+.brand-item img {
+    height: 45px;
+    opacity: 0.6;
+    filter: brightness(0) invert(1); /* Прави ги бели */
+    transition: 0.4s ease;
+}
+
+.brand-item:hover img {
+    opacity: 1;
+    transform: scale(1.1);
+    filter: none; /* Връща оригиналните цветове при посочване */
+}
+
+/* --- СЕКЦИЯ МАГИЧЕСКИ АКЦЕНТИ (Highlights) --- */
+.magic-highlights {
+    padding: 60px 20px; /* Малко по-малко padding горе/долу */
+    
+}
+
+.highlights-container {
+    display: grid;
+    /* Увеличаваме minmax на 350px за по-широки карти и 
+       слагаме max-width на 95%, за да запълни екрана */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px; /* Намалено разстояние между картите (беше 30px) */
+    max-width: 95%; /* По-широк контейнер (беше 1200px) */
+    margin: 0 auto;
+    
+}
+
+.highlight-card img {
+    width: 100%;
+    height: 250px; /* Можете да промените тази стойност (напр. 220px или 280px), докато ви хареса */
+    object-fit: cover; /* Важно: реже снимката, за да запълни пространството без да я разтегля */
+    display: block;
+    background: #062461;
+    border-bottom: 3px solid #d4af37;
+}
+
+/* 2. Фиксираме височината на текстовия контейнер под снимката */
+.highlight-card h3 {
+    /* Премахваме flex-grow, за да не се разтяга автоматично */
+    flex-grow: 0; 
+    
+    /* Задаваме фиксирана височина за черния/тъмносиния контейнер */
+    height: 90px; /* Настройте спрямо дължината на текста ви */
+    
+    /* Запазваме центрирането */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+    background: #071b42;
+    margin: 0;
+    color: #fbe496;
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+}
+
+/* Помощно правило за самата карта, за да изглежда подредено */
+.highlight-card {
+    display: inline-block;
+    flex-direction: column;
+    height: 100%; /* Гарантира, че картите в един ред са с еднаква обща височина */
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+}
+
+.highlight-card:hover {
+    transform: scale(1.02);
+    border-color: #d4af37;
+    /* Добавяме и светене при посочване */
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+}
+
+/* Main Content Section */
+/* .index-main {
+    background: #233069;
+} */
+
+.index-main { /* Твоят оригинален фон */
+    padding: 100px 0;
+}
+
+.container-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.about-grid {
+    display: flex;
+    align-items: center; /* Центрира текста спрямо снимката вертикално */
+    gap: 80px; /* Повече разстояние между двете колони */
+}
+
+.about-text {
+    flex: 1.2; /* Текстът заема малко повече място */
+    text-align: left;
+}
+
+/* Златен бадж по образеца на "New" от Dropbox */
+.magic-badge {
+    background: linear-gradient(135deg, #fbe496 0%, #d4af37 100%);
+    color: #062461;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.section-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4.5rem; /* Голямо заглавие като в скрийншота */
+    color: #dbcb99;
+    margin-bottom: 30px;
+    text-align: left;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
+}
+
+/* Групиране на бутоните в един ред */
+.button-group-row {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Твоят оригинален линк, но по-стилизиран */
+.gold-link {
+    color: #fbe496;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: 0.3s;
+    border-bottom: 1px solid transparent;
+}
+
+.gold-link:hover {
+    color: white;
+    border-bottom: 1px solid #fbe496;
+}
+
+/* Изображението отдясно */
+.about-image {
+    flex: 1;
+    position: relative;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 20px;
+    border: 2px solid #d4af37;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6); /* Дълбока сянка за премиум вид */
+    transition: transform 0.4s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.02); /* Леко "дишане" при посочване */
+}
+
+/* ===================================================================
+   NEWS PAGE STYLES
+   =================================================================== */
+
+.news-page {
+    background: linear-gradient(135deg, #071c5c 0%, #575d8a 100%);
+    color: white;
+}
+
+.news-wrapper {
+    padding-bottom: 80px;
+}
+
+/* News Hero Grid (Bento layout) */
+.news-hero-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: repeat(2, 280px);
+    gap: 15px;
+    margin: 60px;
+}
+
+.main-featured {
+    grid-area: 1 / 1 / 3 / 2;
+}
+
+.side-featured {
+    grid-area: 1 / 2 / 2 / 4;
+}
+
+/* News Cards */
+.news-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.news-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.news-card:hover img {
+    transform: scale(1.05);
+}
+
+.news-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    z-index: 2;
+}
+
+.category-badge {
+    background: #d4af37;
+    color: #062461;
+    padding: 4px 12px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.main-featured h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.side-featured h3 {
+    font-size: 1.4rem;
+}
+
+/* News Archive Grid */
+.glow-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 40px;
+    color: #fbe496;
+    text-align: center;
+    margin: 50px 0;
+    text-shadow: 0 0 10px #d4af37;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    padding-bottom: 10px;
+}
+
+.news-archive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin: 0 60px;
+    gap: 20px;
+}
+
+.archive-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    transition: 0.3s;
+}
+
+.archive-card:hover {
+    transform: translateY(-10px);
+    border-color: #d4af37;
+}
+
+.archive-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.archive-body {
+    padding: 20px;
+}
+
+.archive-body h4 {
+    color: #dbcb99;
+    text-shadow: 0 0 15px rgba(255, 247, 223, 0.4), 2px 2px 10px rgba(0,0,0,0.6);
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.read-more {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* ===================================================================
+   ABOUT PAGE STYLES
+   =================================================================== */
+
+.about-page {
+    background: linear-gradient(135deg, #071c5c 0%, #575d8a 100%);
+}
+
+.about-hero {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    background: url('pictures/about-hero.JPG') no-repeat center center/cover;
+    margin-top: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.8);
+}
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Тъмносин полупрозрачен слой */
+    background: rgba(6, 36, 97, 0.6); 
+}
+
+.hero-content-about {
+    position: relative;
+    z-index: 2;
+}
+
+.about-hero-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem;
+    color: #d4af37;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+    margin-bottom: 10px;
+}
+
+.about-hero-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.about-main-content {
+    padding-top: 50px !important;
+}
+
+.mission-vision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    text-align: center;
+}
+
+.value-box i {
+    font-size: 2.5rem;
+    color: #d4af37;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.history-timeline {
+    border-left: 2px solid #d4af37;
+    margin: 40px auto;
+    padding-left: 40px;
+    max-width: 800px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.marker {
+    position: absolute;
+    left: -51px;
+    top: 5px;
+    width: 18px;
+    height: 18px;
+    background: #062461;
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+}
+.universe-hero {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    background: url('pictures/universe-background.jpg') no-repeat center center/cover;
+    margin-top: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.8);
+}
+
+/* ===================================================================
+   GLOBAL MEDIA QUERIES - Responsive styles for all pages
+   =================================================================== */
+
+@media (max-width: 1024px) {
+    /* Navigation */
+    .nav-container {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important; /* Разделя хамбургера и логото */
+        align-items: center !important;
+        padding: 0 20px !important;
+        height: 75px !important;
+        position: relative;
+    }
+
+    /* Премахваме златната арка на мобилни, за да не крие елементи */
+    .nav-container::after {
+        display: none !important;
+    }
+
+    /* 2. Показваме мобилното лого и го пращаме вдясно */
+    .mobile-logo {
+        display: block !important;
+        order: 2; /* Отива вдясно */
+    }
+
+    .mobile-logo img {
+        height: 50px !important;
+        width: auto;
+    }
+
+    /* 3. Хамбургер бутона отива вляво */
+    .mobile-menu-toggle {
+        display: flex !important;
+        order: 1; /* Отива вляво */
+        font-size: 26px;
+        color: white;
+        z-index: 1002;
+    }
+
+    /* 4. Скриваме десктоп логото (това, което е в <ul>) */
+    .nav .nav-logo {
+        display: none !important;
+    }
+
+    /* 5. Падащото меню (центрирано) */
+    .nav {
+        background: rgba(6, 36, 97, 0.85) !important;
+        backdrop-filter: blur(15px); /* ТОВА създава стъкления ефект */
+        border-left: 1px solid rgba(212, 175, 55, 0.2);
+        display: none; /* Скрито докато не се кликне */
+        flex-direction: column;
+        position: fixed;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 75px);
+        background: #04163a;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        z-index: 1001;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav.active {
+        display: flex !important;
+    }
+
+    .nav-link-item {
+        font-size: 1.4rem !important;
+        padding: 10px 0 !important;
+        text-align: center;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+    .nav-link-item:hover {
+        color: #e5d397; /* Сменя цвета на златист */
+        transform: scale(1.2); /* Уголемява елемента с 20% */
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); /* Добавя леко сияние */
+    }
+    @media (max-width: 768px) {
+        .stat-item {
+            width: 160px;
+            height: 160px;
+        }
+        .stat-item h3 {
+            font-size: 2rem;
+        }
+    }
+
+    /* Gallery Page */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .gallery-controls {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    .search-box {
+        width: 100% !important;
+    }
+
+    /* News Page */
+    .news-hero-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    .main-featured {
+        grid-area: auto;
+        grid-column: span 2;
+        height: 400px;
+    }
+
+    .side-featured {
+        grid-area: auto;
+        grid-column: span 2;
+        height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .achievements-box {
+        gap: 15px; /* Намаляваме разстоянието */
+    }
+    
+    .stat-item {
+        flex: 0 0 110px; /* Намаляваме размера на кръга на 110px */
+        height: 110px;
+    }
+    
+    .stat-item h3 {
+        font-size: 1.2rem;
+    }
+    
+    .stat-item p {
+        font-size: 0.6rem;
+    }
+    /* News Page */
+    .news-hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .main-featured,
+    .side-featured {
+        grid-column: span 1;
+        height: 350px;
+    }
+
+    .main-featured h2 {
+        font-size: 1.5rem;
+    }
+
+    /* About Page */
+    .about-hero {
+        height: 50vh;
+    }
+
+    .about-hero-title {
+        font-size: 3.5rem;
+    }
+
+    .about-hero-subtitle {
+        font-size: 1.2rem;
+    }
+}
