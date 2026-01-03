@@ -140,27 +140,6 @@
             opacity: 1;
         }
 
-        /* ПАГИНАЦИЯ */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .page-link {
-            padding: 10px 20px;
-            border: 1px solid #d4af37;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-
-        .page-link.active, .page-link:hover {
-            background: #d4af37;
-            color: #062461;
-            font-weight: bold;
-        }
 
         /* Адаптивност за мобилни устройства */
         
@@ -257,14 +236,6 @@
 
             <div class="gallery-grid" id="gallery-grid">
             </div>
-
-            <div class="pagination">
-                <a href="#" class="page-link"><i class="fas fa-chevron-left"></i> Предишна</a>
-                <a href="#" class="page-link active">1</a>
-                <a href="#" class="page-link">2</a>
-                <a href="#" class="page-link">3</a>
-                <a href="#" class="page-link">Следваща <i class="fas fa-chevron-right"></i></a>
-            </div>
         </div>
     </main>
     <footer>
@@ -288,7 +259,7 @@
                 <i class="fab fa-linkedin-in"></i>
             </a>
          </div>
-        <p style="font-size: 0.8rem; margin-top: 20px; opacity: 0.6;">
+        <p class="copyright">
             &copy; 2025 Курсов проект: Disney България. Изработено от Полина Душева.
         </p>
     </footer>

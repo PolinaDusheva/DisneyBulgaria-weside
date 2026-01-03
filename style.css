@@ -555,7 +555,7 @@ footer {
     font-size: 4.5rem !important;
     color: #dbcb99 !important;
     margin-bottom: 30px !important;
-    text-align: left !important;
+    text-align: center !important;
     text-shadow: 0 0 15px rgba(212, 175, 55, 0.8) !important;
     
     /* ТАЗИ ЛИНИЯ ГАРАНТИРА ЕДИН РЕД */
@@ -927,7 +927,6 @@ footer {
     padding-top: 130px;
 }
 
-/* News Hero Grid (Bento layout) */
 .news-hero-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
@@ -1019,6 +1018,7 @@ footer {
     overflow: hidden;
     border: 1px solid rgba(212, 175, 55, 0.2);
     transition: 0.3s;
+    
 }
 
 .archive-card:hover {
@@ -1060,22 +1060,20 @@ footer {
     .nav-container {
         display: flex !important;
         flex-direction: row !important;
-        justify-content: space-between !important; /* Разделя хамбургера и логото */
+        justify-content: space-between !important;
         align-items: center !important;
         padding: 0 20px !important;
         height: 75px !important;
         position: relative;
     }
 
-    /* Премахваме златната арка на мобилни, за да не крие елементи */
     .nav-container::after {
         display: none !important;
     }
 
-    /* 2. Показваме мобилното лого и го пращаме вдясно */
     .mobile-logo {
         display: block !important;
-        order: 2; /* Отива вдясно */
+        order: 2; 
     }
 
     .mobile-logo img {
@@ -1083,27 +1081,24 @@ footer {
         width: auto;
     }
 
-    /* 3. Хамбургер бутона отива вляво */
     .mobile-menu-toggle {
         display: flex !important;
-        order: 1; /* Отива вляво */
+        order: 1;
         font-size: 26px;
         cursor: pointer;
         color: white;
         z-index: 1100;
     }
 
-    /* 4. Скриваме десктоп логото (това, което е в <ul>) */
     .nav .nav-logo {
         display: none !important;
     }
 
-    /* 5. Падащото меню (центрирано) */
     .nav {
         background: rgba(6, 36, 97, 0.85) !important;
-        backdrop-filter: blur(15px); /* ТОВА създава стъкления ефект */
+        backdrop-filter: blur(15px);
         border-left: 1px solid rgba(212, 175, 55, 0.2);
-        display: none !important;/* Скрито докато не се кликне */
+        display: none !important;
         flex-direction: column;
         position: fixed;
         top: 75px;
@@ -1131,45 +1126,44 @@ footer {
         display: inline-block;
     }
     .nav-link-item:hover {
-        color: #e5d397; /* Сменя цвета на златист */
-        transform: scale(1.2); /* Уголемява елемента с 20% */
-        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); /* Добавя леко сияние */
+        color: #e5d397; 
+        transform: scale(1.2);
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); 
     }
-    @media (max-width: 768px) {
-        .stat-item {
+
+
+@media (max-width: 768px) {
+    .stat-item {
             width: 160px;
             height: 160px;
         }
-        .stat-item h3 {
+    .stat-item h3 {
             font-size: 2rem;
         }
+
     /* about page */
     .timeline-center-container::before {
         left: 30px;
     }
 
-    /* Всички редове стават на 100% ширина */
     .timeline-row {
         width: 100%;
-        padding-left: 70px; /* Място за линията вляво */
+        padding-left: 70px; 
         padding-right: 20px;
         margin-bottom: 30px;
     }
 
-    /* Нулираме спецификите за ляво/дясно */
     .timeline-row.left,
     .timeline-row.right {
         left: 0;
-        text-align: left; /* Всичко се подравнява вляво */
+        text-align: left; 
     }
 
-    /* Местим точките върху новата лява линия */
     .timeline-row.left::after,
     .timeline-row.right::after {
-        left: 18px; /* Центрирано върху линията на 30px */
+        left: 18px; 
     }
 
-    /* Местим свързващите линии */
     .timeline-row.left .glass-bubble::before,
     .timeline-row.right .glass-bubble::before {
         left: -42px;
@@ -1179,24 +1173,60 @@ footer {
     .year-bubble {
         font-size: 1.5rem;
     }
-    }
+}
 
 
     /* Gallery Page */
-    .gallery-grid {
+    .container-main, 
+    .gallery-section { 
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        padding-top: 40px !important; 
+        padding-bottom: 40px !important;
+    }
+
+    #gallery-grid, .gallery-grid {
+        display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 15px;
-        padding: 10px;
+        gap: 10px !important; 
+        padding: 0 !important; 
+        margin: 20px 0 !important;
+    }
+
+    .gallery-item img {
+        height: 180px !important; 
+        object-fit: cover;
     }
 
     .gallery-controls {
-        flex-direction: column;
-        gap: 15px;
-        align-items: stretch;
+        flex-direction: column !important;
+        align-items: center !important; 
+        width: 100% !important;
+        margin-bottom: 25px !important;
     }
 
-    .search-box {
-        width: 100% !important;
+
+    filter-container {
+        width: auto !important;     
+        max-width: 85% !important;  
+    }
+
+    select#movie-filter {
+        width: auto !important;       
+        min-width: 200px !important;  
+        max-width: 100% !important;   
+        font-size: 0.9rem !important; 
+        padding: 8px 30px 8px 12px !important; 
+        white-space: nowrap !important; 
+        overflow: hidden !important;   
+        text-overflow: ellipsis !important; 
+        border-radius: 20px !important;
+    }
+
+    select#movie-filter optgroup,
+    select#movie-filter option {
+        font-size: 10px !important;
+        padding: 5px !important;
     }
 
     /* News Page */
@@ -1216,15 +1246,16 @@ footer {
         grid-column: span 2;
         height: 300px;
     }
+
 }
 
 @media (max-width: 768px) {
     .achievements-box {
-        gap: 15px; /* Намаляваме разстоянието */
+        gap: 15px; 
     }
     
     .stat-item {
-        flex: 0 0 110px; /* Намаляваме размера на кръга на 110px */
+        flex: 0 0 110px; 
         height: 110px;
     }
     
@@ -1235,6 +1266,7 @@ footer {
     .stat-item p {
         font-size: 0.6rem;
     }
+
     /* News Page */
     .news-hero-grid {
         grid-template-columns: 1fr;
@@ -1250,15 +1282,43 @@ footer {
         font-size: 1.5rem;
     }
 
+    .news-archive-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important; 
+        margin: 20px auto !important; 
+        padding: 0 20px !important;
+        width: 100% !important;
+        gap: 25px !important;
+    }
+
+    .archive-card {
+        width: 100% !important;
+        max-width: 350px !important; 
+        margin: 0 auto !important;
+    }
+
+    .archive-body {
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .glow-title {
+        font-size: 30px !important;
+        margin: 40px 20px 20px 20px !important;
+        text-align: center !important;
+    }
+
     /* About Page */
     .about-hero {
         height: 50vh;
     }
 
-    /* 1. Заглавия - спираме изрязването */
     .about-section-title, .section-title {
-        font-size: 2.8rem !important; /* Намаляваме размера */
-        white-space: normal !important; /* Позволяваме пренасяне на нов ред */
+        font-size: 2.8rem !important; 
+        white-space: normal !important; 
         text-align: center !important;
         line-height: 1.2;
     }
@@ -1268,7 +1328,6 @@ footer {
         letter-spacing: 1px;
     }
 
-    /* 2. Контейнери - запълват екрана */
     .about-container-main, .container, .about-mission-vision-container {
         padding: 20px !important;
     }
@@ -1286,22 +1345,22 @@ footer {
         font-size: 18px;
     }
     .about-grid {
-        flex-direction: column; /* Снимката отива под текста */
+        flex-direction: column; 
         gap: 30px;
     }
 
     .about-text {
         text-align: center;
-        order: 2; /* Текстът е втори */
+        order: 2; 
     }
 
     .about-image {
-        order: 1; /* Снимката е първа за визуален акцент */
+        order: 1; 
         width: 100%;
     }
 
     .about-image img {
-        height: 300px; /* Намаляваме височината на снимката за мобилни */
+        height: 300px; 
     }
 
     .button-group-row {
@@ -1309,7 +1368,7 @@ footer {
     }
 
     .mission-vision-grid {
-        grid-template-columns: 1fr; /* Една колона */
+        grid-template-columns: 1fr; 
         gap: 20px;
         padding: 0 10px;
     }
@@ -1323,13 +1382,12 @@ footer {
         height: auto;
         margin-bottom: 15px;
     }
-    /* Местим златната линия вляво */
+
     .timeline-container::before {
         left: 20px;
         transform: none;
     }
 
-    /* Всички редове заемат целия екран */
     .timeline-row, .timeline-row.right {
         padding-left: 50px;
         padding-right: 10px;
@@ -1337,7 +1395,6 @@ footer {
         text-align: left;
     }
 
-    /* Подравняваме златните точки по новата линия */
     .timeline-row::after {
         left: 20px;
     }
@@ -1351,10 +1408,6 @@ footer {
     .year-bubble {
         font-size: 1.2rem;
     }
-
-
-
-    /* Universe Page */
     .universe-flex, 
     .universe-section.reverse .universe-flex {
         flex-direction: column !important;
@@ -1362,16 +1415,15 @@ footer {
         padding: 0;
     }
 
-    /* Махаме огромните паддинги от десктоп версията */
     .journey-text {
         padding: 30px 20px !important;
         text-align: center;
-        order: 2; /* Текстът винаги е втори */
+        order: 2; 
     }
 
     .journey-image {
         width: 100%;
-        order: 1; /* Снимката винаги е първа */
+        order: 1; 
     }
 
     .journey-image img {
@@ -1381,11 +1433,12 @@ footer {
         object-fit: cover;
     }
 
-    /* Специфична корекция за кръга с даренията */
     .stats-circle {
         width: 220px;
         height: 220px;
         margin: 20px auto;
     }
+
+
 
 }

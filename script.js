@@ -247,23 +247,30 @@ if (grid) {
         { file: 'snow-white.jpg', category: 'classics', title: 'Снежанка' },
         { file: 'lion-king.jpg', category: 'classics', title: 'Цар Лъв' },
         { file: 'cinderella.jpg', category: 'classics', title: 'Пепеляшка' },
-        { file: 'dragon.jpg', category: 'classics', title: 'Аладин' },
+        { file: 'aladin.jpg', category: 'classics', title: 'Аладин' },
         { file: 'nutcracker.jpg', category: 'classics', title: 'Лешникотрошачката' },
         { file: 'avatar.jpg', category: 'classics', title: 'Аватар' },
         { file: 'frozen-olaf.jpg', category: 'classics', title: 'Замръзналото кралство' },
         { file: 'coco-secret.jpg', category: 'classics', title: 'Тайната на коко' },
-        { file: 'aladin.jpg', category: 'classics', title: 'Аладин' },
-        { file: 'aladin.jpg', category: 'classics', title: 'Аладин' },
-        { file: 'aladin.jpg', category: 'classics', title: 'Аладин' },
-        { file: 'aladin.jpg', category: 'classics', title: 'Аладин' },
+        { file: 'alice.jpg', category: 'classics', title: 'Алиса в страната на чудесата' },
+        { file: 'tangled.jpg', category: 'classics', title: 'Рапунцел' },
+        { file: 'little-mermaid.jpg', category: 'classics', title: 'Малката русалка' },
         
         
         // PIXAR
-        { file: 'toy-story.jpg', category: 'pixar', title: 'Играта на играчките' },
-        { file: 'finding-nemo.jpg', category: 'pixar', title: 'Търсенето на Немо' },
+        { file: 'toy-story-2.jpg', category: 'pixar', title: 'Играта на играчките' },
+        { file: 'nemo.jpg', category: 'pixar', title: 'Търсенето на Немо' },
         { file: 'coco.jpg', category: 'pixar', title: 'Тайната на Коко' },
+        { file: 'monsters-ood.jpg', category: 'pixar', title: 'Таласъми отдолу' },
+        { file: 'wish.jpg', category: 'pixar', title: 'Желание' },
+        { file: 'elemental.jpg', category: 'pixar', title: 'Елементи' },
+        { file: 'ratatouille.jpg', category: 'pixar', title: 'Рататуй' },
+        { file: 'inside-out.jpg', category: 'pixar', title: 'Отвътре навън' },
+        { file: 'aladin-banner.jpg', category: 'pixar', title: 'Аладин' },
+        { file: 'brave-heart.jpg', category: 'pixar', title: 'Храбро сърце' },
         { file: 'cars.jpg', category: 'pixar', title: 'Колите' },
-        
+        { file: 'up.jpg', category: 'pixar', title: 'В небето' },
+
         // MARVEL
         { file: 'iron-man.jpg', category: 'marvel', title: 'Железният човек' },
         { file: 'deadpull.jpg', category: 'marvel', title: 'Дедпул' },
@@ -277,6 +284,7 @@ if (grid) {
         { file: 'iron-man1.jpg', category: 'marvel', title: 'Железният човек' },
         { file: 'spiderman2.jpg', category: 'marvel', title: 'Спайдър-мен' },
         { file: 'dr-strange1.jpg', category: 'marvel', title: 'Доктор Стрейндж' },
+
         // STAR WARS
         { file: 'darth-vader.jpg', category: 'starwars', title: 'Дарт Вейдър' },
         { file: 'mandalorian.jpg', category: 'starwars', title: 'Мандалорецът' },
