@@ -195,7 +195,6 @@ if (menuBtn && navMenu) {
     console.log("Бутонът е намерен!");
     menuBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        //alert("Кликна ме!"); // АКО ТОВА СЕ ПОЯВИ, ЗНАЧИ СКРИПТЪТ РАБОТИ
         navMenu.classList.toggle('active');
         
         const icon = menuBtn.querySelector('i');
