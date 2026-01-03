@@ -185,11 +185,11 @@ footer {
 /* Section Title (used on multiple pages) */
 .section-title {
     font-family: 'Great Vibes', cursive !important;
-    font-size: 4.5rem !important; /* Увеличен размер като на скрийншота */
+    font-size: 60px !important; /* Увеличен размер като на скрийншота */
     color: #dbcb99 !important;
     margin-bottom: 35px !important;
     text-align: center !important; /* Ляво подравняване за двата раздела */
-    text-shadow: 0 0 15px rgba(88, 76, 35, 0.8), 2px 2px 10px rgba(0,0,0,0.6) !important;
+    text-shadow: 0 0 15px rgba(88, 76, 35, 0.8), 2px 2px 10px rgba(213, 200, 147, 0.6) !important;
     width: 100%;
     display: block;
 }
@@ -324,8 +324,8 @@ footer {
    =================================================================== */
 /* Hero Section with Video */
 .index-page{
-    padding-top: 40px;
-    background: linear-gradient(135deg, #101d52 0%, #202c4c 100%);
+    padding-top: 50px;
+    background: linear-gradient(135deg, #101d52 0%, #3f4d73 100%);
 }
 .index-hero {
     position: relative;
@@ -398,7 +398,7 @@ footer {
 
 /* --- СЕКЦИЯ МАГИЧЕСКИ АКЦЕНТИ (Highlights) --- */
 .magic-highlights {
-    padding: 60px 20px; /* Малко по-малко padding горе/долу */
+    padding: 40px 20px; /* Малко по-малко padding горе/долу */
     
 }
 
@@ -466,26 +466,8 @@ footer {
     background: #233069;
 } */
 
-.index-main { /* Твоят оригинален фон */
-    padding: 100px 0;
-}
 
-.container-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
 
-.about-grid {
-    display: flex;
-    align-items: center; /* Центрира текста спрямо снимката вертикално */
-    gap: 80px; /* Повече разстояние между двете колони */
-}
-
-.about-text {
-    flex: 1.2; /* Текстът заема малко повече място */
-    text-align: left;
-}
 
 /* Златен бадж по образеца на "New" от Dropbox */
 .magic-badge {
@@ -509,7 +491,122 @@ footer {
     text-align: left;
     text-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
 }
+/* ===================================================================
+   ABOUT PAGE STYLES
+   =================================================================== */
 
+   .about-page {
+    background: linear-gradient(135deg, #071c5c 0%, #575d8a 100%);
+}
+
+.about-hero {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    background: url('pictures/about-hero.JPG') no-repeat center center/cover;
+    /* margin-top: 75px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.8);
+}
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Тъмносин полупрозрачен слой */
+    background: rgba(6, 36, 97, 0.6); 
+}
+
+.hero-content-about {
+    position: relative;
+    z-index: 2;
+}
+
+.about-hero-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem;
+    color: #d4af37;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+    margin-bottom: 10px;
+}
+
+.about-hero-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.about-main-content {
+    padding-top: 30px 60px!important;
+}
+.about-container-main {
+    max-width: 1400px; /* Трябва да е идентична с тази на долната мрежа */
+    margin: 0 auto;
+    padding: 0 40px; 
+    width: 100%;
+    
+}
+
+.about-section-title {
+    font-family: 'Great Vibes', cursive !important;
+    font-size: 4.5rem !important;
+    color: #dbcb99 !important;
+    margin-bottom: 30px !important;
+    text-align: left !important;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.8) !important;
+    
+    /* ТАЗИ ЛИНИЯ ГАРАНТИРА ЕДИН РЕД */
+    white-space: nowrap; 
+    
+    /* Премахваме всякакви вътрешни ограничения */
+    width: auto;
+    display: block;
+}
+.about-grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px; /* Намаляваме малко гапа, за да дадем място на дългото заглавие */
+}
+
+.about-text {
+    /* Даваме малко повече тежест на текстовата част */
+    flex: 1.5; 
+    text-align: left;
+    min-width: 0; /* Важно за предотвратяване на излизане от контейнера */
+    text-align: justify;
+}
+
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 40px;
+}
+
+.about-image img {
+    width: 100%; /* Заема цялата налична ширина на колоната */
+    
+    /* ПРОМЕНЕТЕ ТОВА: Задайте желаната височина */
+    height: 490px; /* Можете да пробвате с 400px, 500px и т.н., докато ви хареса */
+    
+    /* ВАЖНО: Това предотвратява сплескването на снимката */
+    object-fit: cover; 
+    /* object-position: center top; - Ако искате да се вижда повече върха на замъка, добавете този ред */
+
+    /* Запазете останалите стилове за красота */
+    border-radius: 15px;
+    border: 2px solid #d4af37;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    display: block;
+}
+
+.about-image img:hover {
+    transform: scale(1.02); /* Леко "дишане" при посочване */
+}
 /* Групиране на бутоните в един ред */
 .button-group-row {
     display: flex;
@@ -532,24 +629,290 @@ footer {
     color: white;
     border-bottom: 1px solid #fbe496;
 }
+.about-mission-vision-container{
+    max-width: 1400px; /* Увеличена ширина от 1100px на 1400px */
+    margin: 0 auto;
+    padding: 0 50px; /* Повече „въздух“ отстрани */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрира съдържанието хоризонтално */
+}
 
-/* Изображението отдясно */
-.about-image {
-    flex: 1;
+/* 1. Намаляваме общата височина на грида */
+.mission-vision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: stretch;
+    max-width: 1200px; /* Малко по-сбито спрямо 1400px */
+    margin: 70px auto;
+    padding: 0 40px;
+}
+
+/* 2. Свиваме кутията */
+.glass-card {
+    display: flex;
+    flex-direction: column;
+    padding: 40px; /* Намалено от 50px на 30px за по-малка височина */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 25px;
+    text-align: center;
+    min-height: auto; /* Премахваме твърдата минимална височина */
+}
+
+/* 3. Оправяме заглавието и премахваме двойната линия */
+.glass-card h2 {
+    font-family: 'Cinzel', serif;
+    color: #fbe496;
+    font-size: 1.8rem;
+    
+    /* ФИКСИРАНЕ НА НИВОТО: Намаляваме мястото за заглавието */
+    height: 60px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    
+    /* ПРЕМАХВАМЕ border-bottom, ако го има, за да няма двойна линия */
+    border-bottom: none !important; 
     position: relative;
 }
 
-.about-image img {
-    width: 100%;
-    border-radius: 20px;
-    border: 2px solid #d4af37;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.6); /* Дълбока сянка за премиум вид */
-    transition: transform 0.4s ease;
+/* Единствената златна линия под заглавието */
+.glass-card h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.8), transparent);
 }
 
-.about-image img:hover {
-    transform: scale(1.02); /* Леко "дишане" при посочване */
+/* 4. Текстът - центриран и без излишно разтягане */
+.glass-card p {
+    /* font-size:17px; */
+    line-height: 1.6;
+    margin: 0;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+    min-height: 100px; /* Ограничава височината на текстовия блок */
 }
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    text-align: center;
+}
+
+.value-box i {
+    font-size: 2.5rem;
+    color: #d4af37;
+    margin-bottom: 15px;
+    display: block;
+}
+.timeline{
+    background: linear-gradient(135deg, #101d52 0%, #3f4d73 100%);
+    border-top: 1px solid rgba(212, 175, 55, 0.8);
+    padding-top: 40px;
+}
+
+.timeline-section {
+    padding: 80px 0;
+    background: transparent;
+    /* Спира всякакви елементи да излизат извън тази секция */
+    overflow: hidden; 
+    position: relative;
+    
+}
+
+.timeline-container {
+    max-width: 1400px;
+    margin: 60px auto 0 auto;
+    /* ТОВА Е НАЙ-ВАЖНОТО: Прави контейнера "котва" за линията */
+    position: relative; 
+    min-height: 200px;
+    padding-bottom: 60px;
+}
+/* ЦЕНТРАЛНАТА ЛИНИЯ - ФИКСИРАНА */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 0; /* Линията започва точно от началото на контейнера */
+    bottom: 0; /* И завършва точно в края му */
+    left: 50%;
+    width: 4px;
+    background: linear-gradient(to bottom, 
+        rgba(212, 175, 55, 0) 0%, 
+        #d4af37 15%, 
+        #d4af37 85%, 
+        rgba(212, 175, 55, 0) 100%
+    );
+    transform: translateX(-50%);
+    z-index: 1; /* Да е под балончетата */
+}
+
+/* БАЛОНЧЕТАТА */
+.timeline-row {
+    display: flex;
+    justify-content: flex-end; /* Лявата кутия е до центъра */
+    padding-right: 50%;
+    position: relative;
+    padding-bottom: 25px;
+    width: 100%;
+}
+
+.timeline-row.right {
+    justify-content: flex-start; /* Дясната кутия е след центъра */
+    padding-right: 0;
+    padding-left: 50%;
+}
+
+.glass-bubble {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border: 2px solid rgba(212, 175, 55, 0.5);
+    border-radius: 25px;
+    padding: 25px 35px;
+    max-width: 1000px; /* Ширина на балончето */
+    margin: 0 40px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: 0.4s ease;
+    z-index: 5;
+}
+
+.glass-bubble:hover {
+    transform: scale(1.05);
+    background: rgba(212, 175, 55, 0.1);
+    border-color: #fbe496;
+}
+
+/* Златната точка върху линията */
+.timeline-row::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #d4af37;
+    border: 3px solid #4e3e09;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    box-shadow: 0 0 15px #d4af37;
+}
+
+.year-bubble {
+    font-family: 'Cinzel', serif;
+    color: #fbe496;
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 10px;
+}
+.universe-hero {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    background: url('pictures/universe-background.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.8);
+}
+/* ===================================================================
+   UNIVERSE PAGE STYLES
+   =================================================================== */
+
+   .universe-main-content {
+    background: linear-gradient(135deg, #071c5c 0%, #575d8a 100%);
+    }
+
+    .universe-section {
+        padding: 30px 40px;
+    }
+
+    .universe-store-container {
+        align-items: center;
+    }
+
+    .universe-flex {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+    }
+
+    .universe-section.reverse .universe-flex {
+        flex-direction: row-reverse;
+    }
+
+    .journey-image {
+        flex: 1;
+    }
+
+    .journey-image img {
+        width: 100%;
+        border-radius: 30px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+
+    .journey-text {
+        flex: 1;
+        padding: 50px !important;
+    }
+
+    .category {
+        color: #d4af37;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 2px;
+        font-size: 14px;
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    .journey-text h2 {
+        font-family: 'Cinzel', serif;
+        font-size: 40px;
+        color: #fbe496;
+        margin-bottom: 20px;
+    }
+
+    .magic-link {
+        color: #d4af37;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 20px;
+        display: inline-block;
+        transition: 0.3s;
+    }
+
+    .magic-link:hover {
+        color: white;
+        transform: translateX(10px);
+    }
+
+    .stats-circle {
+        width: 300px;
+        height: 300px;
+        border: 2px solid #d4af37;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        background: rgba(212, 175, 55, 0.05);
+        box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+    }
 
 /* ===================================================================
    NEWS PAGE STYLES
@@ -561,7 +924,7 @@ footer {
 }
 
 .news-wrapper {
-    padding-bottom: 80px;
+    padding-top: 130px;
 }
 
 /* News Hero Grid (Bento layout) */
@@ -638,7 +1001,6 @@ footer {
     font-size: 40px;
     color: #fbe496;
     text-align: center;
-    margin: 50px 0;
     text-shadow: 0 0 10px #d4af37;
     border-bottom: 1px solid rgba(212, 175, 55, 0.3);
     padding-bottom: 10px;
@@ -647,7 +1009,7 @@ footer {
 .news-archive-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    margin: 0 60px;
+    margin: 40px 60px;
     gap: 20px;
 }
 
@@ -688,114 +1050,6 @@ footer {
     font-weight: bold;
 }
 
-/* ===================================================================
-   ABOUT PAGE STYLES
-   =================================================================== */
-
-.about-page {
-    background: linear-gradient(135deg, #071c5c 0%, #575d8a 100%);
-}
-
-.about-hero {
-    position: relative;
-    height: 60vh;
-    min-height: 400px;
-    background: url('pictures/about-hero.JPG') no-repeat center center/cover;
-    margin-top: 75px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.8);
-}
-.hero-overlay {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    /* Тъмносин полупрозрачен слой */
-    background: rgba(6, 36, 97, 0.6); 
-}
-
-.hero-content-about {
-    position: relative;
-    z-index: 2;
-}
-
-.about-hero-title {
-    font-family: 'Great Vibes', cursive;
-    font-size: 5rem;
-    color: #d4af37;
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-    margin-bottom: 10px;
-}
-
-.about-hero-subtitle {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.5rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-.about-main-content {
-    padding-top: 50px !important;
-}
-
-.mission-vision-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin-bottom: 60px;
-}
-
-.values-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    text-align: center;
-}
-
-.value-box i {
-    font-size: 2.5rem;
-    color: #d4af37;
-    margin-bottom: 15px;
-    display: block;
-}
-
-.history-timeline {
-    border-left: 2px solid #d4af37;
-    margin: 40px auto;
-    padding-left: 40px;
-    max-width: 800px;
-}
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 40px;
-}
-
-.marker {
-    position: absolute;
-    left: -51px;
-    top: 5px;
-    width: 18px;
-    height: 18px;
-    background: #062461;
-    border: 2px solid #d4af37;
-    border-radius: 50%;
-}
-.universe-hero {
-    position: relative;
-    height: 60vh;
-    min-height: 400px;
-    background: url('pictures/universe-background.jpg') no-repeat center center/cover;
-    margin-top: 75px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.8);
-}
 
 /* ===================================================================
    GLOBAL MEDIA QUERIES - Responsive styles for all pages
@@ -834,8 +1088,9 @@ footer {
         display: flex !important;
         order: 1; /* Отива вляво */
         font-size: 26px;
+        cursor: pointer;
         color: white;
-        z-index: 1002;
+        z-index: 1100;
     }
 
     /* 4. Скриваме десктоп логото (това, което е в <ul>) */
@@ -848,7 +1103,7 @@ footer {
         background: rgba(6, 36, 97, 0.85) !important;
         backdrop-filter: blur(15px); /* ТОВА създава стъкления ефект */
         border-left: 1px solid rgba(212, 175, 55, 0.2);
-        display: none; /* Скрито докато не се кликне */
+        display: none !important;/* Скрито докато не се кликне */
         flex-direction: column;
         position: fixed;
         top: 75px;
@@ -888,7 +1143,44 @@ footer {
         .stat-item h3 {
             font-size: 2rem;
         }
+    /* about page */
+    .timeline-center-container::before {
+        left: 30px;
     }
+
+    /* Всички редове стават на 100% ширина */
+    .timeline-row {
+        width: 100%;
+        padding-left: 70px; /* Място за линията вляво */
+        padding-right: 20px;
+        margin-bottom: 30px;
+    }
+
+    /* Нулираме спецификите за ляво/дясно */
+    .timeline-row.left,
+    .timeline-row.right {
+        left: 0;
+        text-align: left; /* Всичко се подравнява вляво */
+    }
+
+    /* Местим точките върху новата лява линия */
+    .timeline-row.left::after,
+    .timeline-row.right::after {
+        left: 18px; /* Центрирано върху линията на 30px */
+    }
+
+    /* Местим свързващите линии */
+    .timeline-row.left .glass-bubble::before,
+    .timeline-row.right .glass-bubble::before {
+        left: -42px;
+        width: 40px;
+    }
+    
+    .year-bubble {
+        font-size: 1.5rem;
+    }
+    }
+
 
     /* Gallery Page */
     .gallery-grid {
@@ -963,11 +1255,137 @@ footer {
         height: 50vh;
     }
 
-    .about-hero-title {
-        font-size: 3.5rem;
+    /* 1. Заглавия - спираме изрязването */
+    .about-section-title, .section-title {
+        font-size: 2.8rem !important; /* Намаляваме размера */
+        white-space: normal !important; /* Позволяваме пренасяне на нов ред */
+        text-align: center !important;
+        line-height: 1.2;
     }
 
     .about-hero-subtitle {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+
+    /* 2. Контейнери - запълват екрана */
+    .about-container-main, .container, .about-mission-vision-container {
+        padding: 20px !important;
+    }
+
+    /* Universe Page */
+    .universe-hero-section {
+        height: 500px;
+    }
+
+    .glow-title-hero {
+        font-size: 56px;
+    }
+
+    .hero-subtitle {
+        font-size: 18px;
+    }
+    .about-grid {
+        flex-direction: column; /* Снимката отива под текста */
+        gap: 30px;
+    }
+
+    .about-text {
+        text-align: center;
+        order: 2; /* Текстът е втори */
+    }
+
+    .about-image {
+        order: 1; /* Снимката е първа за визуален акцент */
+        width: 100%;
+    }
+
+    .about-image img {
+        height: 300px; /* Намаляваме височината на снимката за мобилни */
+    }
+
+    .button-group-row {
+        justify-content: center;
+    }
+
+    .mission-vision-grid {
+        grid-template-columns: 1fr; /* Една колона */
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .glass-card {
+        padding: 25px;
+    }
+
+    .glass-card h2 {
+        font-size: 1.5rem;
+        height: auto;
+        margin-bottom: 15px;
+    }
+    /* Местим златната линия вляво */
+    .timeline-container::before {
+        left: 20px;
+        transform: none;
+    }
+
+    /* Всички редове заемат целия екран */
+    .timeline-row, .timeline-row.right {
+        padding-left: 50px;
+        padding-right: 10px;
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    /* Подравняваме златните точки по новата линия */
+    .timeline-row::after {
+        left: 20px;
+    }
+
+    .glass-bubble {
+        max-width: 100%;
+        margin: 0;
+        padding: 15px 20px;
+    }
+
+    .year-bubble {
         font-size: 1.2rem;
     }
+
+
+
+    /* Universe Page */
+    .universe-flex, 
+    .universe-section.reverse .universe-flex {
+        flex-direction: column !important;
+        gap: 20px;
+        padding: 0;
+    }
+
+    /* Махаме огромните паддинги от десктоп версията */
+    .journey-text {
+        padding: 30px 20px !important;
+        text-align: center;
+        order: 2; /* Текстът винаги е втори */
+    }
+
+    .journey-image {
+        width: 100%;
+        order: 1; /* Снимката винаги е първа */
+    }
+
+    .journey-image img {
+        border-radius: 20px;
+        height: auto;
+        max-height: 250px;
+        object-fit: cover;
+    }
+
+    /* Специфична корекция за кръга с даренията */
+    .stats-circle {
+        width: 220px;
+        height: 220px;
+        margin: 20px auto;
+    }
+
 }

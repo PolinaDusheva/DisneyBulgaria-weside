@@ -9,112 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <style>
-        /* --- UNIVERSE JOURNEY STYLES --- */
-.universe-main-content {
-    background: linear-gradient(135deg, #071c5c 0%, #575d8a 100%);
-    
-}
-
-/* Адаптивност за по-малки екрани */
-@media (max-width: 768px) {
-    .universe-hero-section { height: 500px; }
-    .glow-title-hero { font-size: 56px; }
-    .hero-subtitle { font-size: 18px; }
-}
-
-.universe-section {
-    padding: 30px 40px;
-}
-.universe-store-container{
-    align-items: center;
-}
-/* Флекс контейнер за редуване */
-.universe-flex {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-}
-
-/* Редуване на секциите */
-.universe-section.reverse .universe-flex {
-    flex-direction: row-reverse;
-}
-
-
-.journey-image {
-    flex: 1;
-}
-
-.journey-image img {
-    width: 100%;
-    border-radius: 30px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    border: 1px solid rgba(212, 175, 55, 0.3);
-}
-
-.journey-text {
-    flex: 1;
-    padding: 50px !important; /* Използваме glass-card стила ти */
-}
-
-.category {
-    color: #d4af37;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 2px;
-    font-size: 14px;
-    display: block;
-    margin-bottom: 15px;
-}
-
-.journey-text h2 {
-    font-family: 'Cinzel', serif;
-    font-size: 40px;
-    color: #fbe496;
-    margin-bottom: 20px;
-}
-
-.magic-link {
-    color: #d4af37;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 20px;
-    display: inline-block;
-    transition: 0.3s;
-}
-
-.magic-link:hover {
-    color: white;
-    transform: translateX(10px);
-}
-
-/* Стил за кръга със статистики */
-.stats-circle {
-    width: 300px;
-    height: 300px;
-    border: 2px solid #d4af37;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    background: rgba(212, 175, 55, 0.05);
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
-}
-
-/* Адаптивност */
-@media (max-width: 900px) {
-    .universe-flex, .universe-section.reverse .universe-flex {
-        flex-direction: column;
-        gap: 30px;
-    }
-    .journey-text {
-        text-align: center;
-    }
-}
-    </style>
 </head>
 
 <body>
@@ -124,6 +18,10 @@
                 <a href="index.html">
                     <img src="pictures/logo-white.png" alt="Disney Logo">
                 </a>
+            </div>
+    
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
             </div>
     
             <ul class="nav">
@@ -146,8 +44,8 @@
     <section class="universe-hero">
         <div class="hero-overlay"></div>
         <div class="hero-content-about">
-            <h1 class="section-title">Нашата История</h1>
-            <p class="about-hero-subtitle">Където мечтите срещат реалността</p>
+            <h1 class="about-section-title">Нашата История</h1>
+            <p class="about-hero-subtitle">Една Вселена, безкрайни истории</p>
         </div>
     </section>
     <!-- <section class="about-hero">
@@ -163,12 +61,12 @@
         <section class="universe-section">
             <div class="container universe-flex">
                 <div class="journey-image">
-                    <img src="pictures/coco.JPG" alt="Disney Productions">
+                    <img src="pictures/films.jpg" alt="Disney Productions">
                 </div>
                 <div class="journey-text glass-card">
                     <span class="category">Продукции</span>
                     <h2>Кино и Disney+</h2>
-                    <p>Където историите оживяват и вдъхновяват поколения по целия свят. 
+                    <p class="universe-text">Където историите оживяват и вдъхновяват поколения по целия свят. 
                         През десетилетията Disney се утвърди като лидер в иновациите, 
                         превръщайки класическата анимация в модерно кино изкуство. 
                         Днес портфолиото на студиото обхваща не само вечните приказки, 
@@ -188,7 +86,7 @@
                 <div class="journey-text glass-card">
                     <span class="category">Дестинации</span>
                     <h2>Магическите Паркове</h2>
-                    <p>Парковете на Disney не са просто дестинация за почивка, 
+                    <p class="universe-text">Парковете на Disney не са просто дестинация за почивка, 
                         те са мястото, където границата между въображението и 
                         реалността изчезва. Тук всеки гост, независимо от възрастта си, 
                         може да прекрачи прага на любимите си истории, да прегърне любимите 
