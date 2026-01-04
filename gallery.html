@@ -139,6 +139,38 @@
         .gallery-item:hover .item-overlay {
             opacity: 1;
         }
+        /* Стилизиране на Lightbox */
+/* --- ГАЛЕРИЯ LIGHTBOX СТИЛОВЕ --- */
+#galleryLightbox .modal-content {
+    background: linear-gradient(135deg, #071c5c 0%, #575d8a 100%); /* Тъмносиньо със стъклен ефект */
+    backdrop-filter: blur(15px);
+    border: 2px solid #d4af37;
+    max-width: 1000px;
+    width: 90%;
+    text-align: center;
+    padding: 20px;
+}
+
+#lightboxImg {
+    width: 100%;
+    max-height: 75vh; /* Ограничаваме височината, за да се вижда и заглавието */
+    object-fit: contain;
+    border-radius: 10px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+#lightboxTitle {
+    font-family: 'Cinzel', serif;
+    color: #fbe496;
+    margin-top: 20px;
+    font-size: 1.8rem;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+/* Мобилна корекция за заглавието */
+@media (max-width: 768px) {
+    #lightboxTitle { font-size: 1.2rem; }
+}
 
 
         /* Адаптивност за мобилни устройства */
@@ -263,6 +295,12 @@
             &copy; 2025 Курсов проект: Disney България. Изработено от Полина Душева.
         </p>
     </footer>
-
+    <div id="galleryLightbox" class="modal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content">
+            <img id="lightboxImg" src="" alt="">
+            <h2 id="lightboxTitle" style="text-align: center; margin-top: 20px; font-family: 'Cinzel', serif; color: #d4af37;"></h2>
+        </div>
+    </div>
     </body>
 </html>
