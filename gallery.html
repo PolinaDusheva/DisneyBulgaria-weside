@@ -8,222 +8,14 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        
-        /* --- ГАЛЕРИЯ СТРАНИЦА --- */
-        .gallery-page {
-            padding-top: 140px; /* Място под фиксираното меню */
-            padding-bottom: 80px;
-            background: linear-gradient(135deg, #071c5c 0%, #575d8a 100%);;
-        }
-
-        .section-tite {
-            font-family: 'Great Vibes', cursive;
-            font-size: 60px;
-            color: #dbcb99;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        /* --- СТЪКЛЕН ФИЛТЪР (GLASSMORPHISM) --- */
-/* --- СТЪКЛЕН ФИЛТЪР (PREMIUM GLASSMORPHISM) --- */
-.gallery-controls {
-    display: flex;
-    justify-content: center; /* Перфектно центриране */
-    align-items: center;
-    margin-bottom: 60px;
-    padding: 20px;
-}
-
-.filter-box {
-    /* Основен стъклен ефект */
-    background: rgba(255, 255, 255, 0.03); 
-    backdrop-filter: blur(18px); 
-    -webkit-backdrop-filter: blur(18px);
-    
-    /* Златиста рамка с градиентно усещане */
-    border: 2px solid rgba(212, 175, 55, 0.3);
-    border-radius: 100px; /* Напълно заоблени краища за по-модерен вид */
-    
-    padding: 12px 50px;
-    max-width: 600px;
-    width: 90%;
-    
-    /* Сянка и сияние */
-    box-shadow: 0 15px 25px rgba(66, 66, 66, 0.6), 
-                0 0 15px rgba(255, 238, 181, 0.1);
-    
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Ефект при посочване */
-.filter-box:hover {
-    transform: translateY(-5px) scale(1.02);
-    border-color: rgba(212, 175, 55, 0.8);
-    background: rgba(255, 255, 255, 0.07);
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 
-                0 0 25px rgba(212, 175, 55, 0.3);
-}
-
-.filter-box select {
-    background: transparent !important;
-    color: #fbe496; /* Златист текст */
-    border: none !important;
-    width: 100%;
-    outline: none;
-    cursor: pointer;
-    font-family: 'Cinzel', serif; /* Магическият шрифт */
-    font-size: 1.3rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-align: center;
-    appearance: none; /* Премахваме системната стрелка за по-чист вид */
-    -webkit-appearance: none;
-}
-
-/* Опциите вътре в списъка */
-.filter-box select option {
-    background: #062461; /* Слива се с темата на страницата */
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    padding: 15px;
-    font-size: 1rem;
-}
-
-        /* ГРИД СИСТЕМА (4x4) */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 4 на ред */
-            gap: 20px;
-            margin: 60px;
-        }
-
-        .gallery-item {
-            position: relative;
-            aspect-ratio: 1 / 1; /* Прави снимките квадратни */
-            overflow: hidden;
-            border-radius: 15px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        /* Ефекти при посочване */
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .item-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(6, 36, 97, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: 0.3s;
-            color: #d4af37;
-            font-size: 2rem;
-        }
-
-        .gallery-item:hover .item-overlay {
-            opacity: 1;
-        }
-        /* Стилизиране на Lightbox */
-/* --- ГАЛЕРИЯ LIGHTBOX СТИЛОВЕ --- */
-#galleryLightbox .modal-content {
-    background: linear-gradient(135deg, #071c5c 0%, #575d8a 100%); /* Тъмносиньо със стъклен ефект */
-    backdrop-filter: blur(15px);
-    border: 2px solid #d4af37;
-    max-width: 1000px;
-    width: 90%;
-    text-align: center;
-    padding: 20px;
-}
-
-#lightboxImg {
-    width: 100%;
-    max-height: 75vh; /* Ограничаваме височината, за да се вижда и заглавието */
-    object-fit: contain;
-    border-radius: 10px;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-}
-
-#lightboxTitle {
-    font-family: 'Cinzel', serif;
-    color: #fbe496;
-    margin-top: 20px;
-    font-size: 1.8rem;
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-}
-
-/* Мобилна корекция за заглавието */
-@media (max-width: 768px) {
-    #lightboxTitle { font-size: 1.2rem; }
-}
-
-
-        /* Адаптивност за мобилни устройства */
-        
-        @media (max-width: 1000px) {
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); } /* 2 на ред за таблети */
-        }
-        @media (max-width: 768px) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr); /* 2 снимки на ред */
-                gap: 10px; /* По-малко разстояние */
-            }
-
-            .gallery-controls {
-                flex-direction: column; /* Търсачката и филтърът един под друг */
-                align-items: stretch;
-            }
-
-            .search-box {
-                width: 100%; /* Търсачката заема целия ред */
-            }
-            .pagination {
-                gap: 5px;
-                flex-wrap: wrap; /* Ако не се събират на един ред */
-            }
-
-            .page-link {
-                padding: 12px 15px; /* По-широки зони за кликане */
-                font-size: 14px;
-            }
-        }
-
-        /* За много малки телефони (под 480px) */
-        @media (max-width: 480px) {
-            .gallery-grid {
-                grid-template-columns: 1fr; /* 1 снимка на ред */
-            }
-        }
-        @media (max-width: 600px) {
-            .gallery-grid { grid-template-columns: 1fr; } /* 1 на ред за телефони */
-            .gallery-controls { flex-direction: column; }
-        }
-        /*меню*/
-       
-    </style>
 </head>
-<body>
+<body class="gallery-body">
 
     <header class="header">
         <div class="nav-container">
             <div class="mobile-logo">
                 <a href="index.html">
-                    <img src="pictures/logo-white.png" alt="Disney Logo">
+                    <img src="pictures/index/logo-white.png" alt="Disney Logo">
                 </a>
             </div>
     
@@ -238,7 +30,7 @@
                 
                 <li class="nav-logo">
                     <a href="index.html">
-                        <img src="pictures/logo-white.png" alt="Disney Logo">
+                        <img src="pictures/index/logo-white.png" alt="Disney Logo">
                     </a>
                 </li>
     
@@ -248,23 +40,27 @@
             </ul>
         </div>
     </header>
-
-    <main class="gallery-page">
-        <div class="container">
-            <h1 class="section-title">Магическа Галерия</h1>
-
-            <div class="gallery-controls">
-                <div class="filter-box">
-                    <i class="fas fa-wand-magic-sparkles" style="color: #d4af37; margin-right: 15px; align-self: center;"></i>
-                    <select id="movie-filter">
-                        <option value="all">Всички Магически Светове</option>
-                        <option value="classics">Класики на Disney</option>
-                        <option value="pixar">Pixar Анимации</option>
-                        <option value="marvel">Marvel Вселена</option>
-                        <option value="starwars">Star Wars Галактика</option>
-                    </select>
+    <section class="gallery-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content-about">
+            <h1 class="about-section-title">Магическа Галерия</h1>
+            <div class="container">
+                <div class="gallery-controls">
+                    <div class="gallery-filter-box">
+                        <i class="fas fa-wand-magic-sparkles" style="color: #d4af37; margin-right: 15px; align-self: center;"></i>
+                        <select id="movie-filter">
+                            <option value="all">Всички Магически Светове</option>
+                            <option value="classics">Класики на Disney</option>
+                            <option value="pixar">Pixar Анимации</option>
+                            <option value="marvel">Marvel Вселена</option>
+                            <option value="starwars">Star Wars Галактика</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
+        </div>
+    </section>
+    <main class="gallery-page">
+        
 
             <div class="gallery-grid" id="gallery-grid">
             </div>

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* --- 1. МОБИЛНО МЕНЮ (Работи на всички страници) --- */
+    /* --- 1. МОБИЛНО МЕНЮ --- */
     const menuBtn = document.querySelector('.mobile-menu-toggle');
     const navMenu = document.querySelector('.nav');
 
@@ -8,7 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
         menuBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             navMenu.classList.toggle('active');
-            
+            if (navMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
             const icon = menuBtn.querySelector('i');
             if (navMenu.classList.contains('active')) {
                 icon.classList.replace('fa-bars', 'fa-times');
@@ -18,59 +22,57 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* --- 2. СТРАНИЦА НОВИНИ (Динамичен текст) --- */
-const modal = document.getElementById("newsModal");
-const closeBtn = document.querySelector(".close-modal");
+    /* --- 2. СТРАНИЦА НОВИНИ --- */
+    const modal = document.getElementById("newsModal");
+    const closeBtn = document.querySelector(".close-modal");
 
-if (modal && closeBtn) { 
-    document.querySelectorAll('.read-more').forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Намираме конкретната карта, която е кликната
-            const card = this.closest('.archive-card') || this.closest('.news-card'); 
-            
-            // Вземаме заглавието и снимката от картата
-            const title = card.querySelector('h2, h3, h4').innerText; 
-            const imgSrc = card.querySelector('img').src; 
+    if (modal && closeBtn) { 
+        document.querySelectorAll('.news-read-more').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const card = this.closest('.news-archive-card') || this.closest('.news-card'); 
+                const title = card.querySelector('h2, h3, h4').innerText; 
+                const imgSrc = card.querySelector('img').src; 
+                const fullContent = card.querySelector('.news-full-description').innerHTML; 
 
-            // НОВО: Вземаме специфичния текст от скрития div в HTML
-            const fullContent = card.querySelector('.full-description').innerHTML; 
+                document.getElementById('modalTitle').innerText = title; 
+                document.getElementById('modalImg').src = imgSrc; 
+                document.getElementById('modalFullText').innerHTML = fullContent; 
 
-            // Попълваме модалния прозорец
-            document.getElementById('modalTitle').innerText = title; 
-            document.getElementById('modalImg').src = imgSrc; 
-            
-            // Използваме innerHTML, за да се запазят параграфите, ако има такива
-            document.getElementById('modalFullText').innerHTML = fullContent; 
-
-            modal.style.display = "block";
-            document.body.style.overflow = "hidden"; // Спира скрола на фона
+                modal.style.display = "block";
+                document.body.style.overflow = "hidden";
+            });
         });
-    });
 
-    // Затваряне на прозореца
-    closeBtn.onclick = () => {
-        modal.style.display = "none";
-        document.body.style.overflow = "auto";
-    };
-
-    window.onclick = (event) => {
-        if (event.target == modal) {
+        closeBtn.onclick = () => {
             modal.style.display = "none";
             document.body.style.overflow = "auto";
-        }
-    };
-}
+        };
 
-    /* --- 3. СТРАНИЦА ГАЛЕРИЯ (С вграден Lightbox) --- */
+        window.onclick = (event) => {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        };
+    }
+
+    /* --- 3. СТРАНИЦА ГАЛЕРИЯ (С НОВИТЕ ПЪТИЩА) --- */
     const grid = document.getElementById('gallery-grid');
     const filterSelect = document.getElementById('movie-filter');
-    const lightbox = document.getElementById('galleryLightbox'); //
+    const lightbox = document.getElementById('galleryLightbox');
 
     if (grid) { 
+        // Карта на пътищата според категорията
+        const categoryPaths = {
+            'classics': 'pictures/gallery/disney/',
+            'pixar': 'pictures/gallery/pixar/',
+            'marvel': 'pictures/gallery/marvel/',
+            'starwars': 'pictures/gallery/star wars/'
+        };
+
         const imagesData = [
-            // КЛАСИКИ (Disney Classics)
+            // КЛАСИКИ
             { file: 'mickey-mouse.jpg', category: 'classics', title: 'Мики Маус' },
             { file: 'snow-white.jpg', category: 'classics', title: 'Снежанка' },
             { file: 'lion-king.jpg', category: 'classics', title: 'Цар Лъв' },
@@ -83,7 +85,6 @@ if (modal && closeBtn) {
             { file: 'alice.jpg', category: 'classics', title: 'Алиса в страната на чудесата' },
             { file: 'tangled.jpg', category: 'classics', title: 'Рапунцел' },
             { file: 'little-mermaid.jpg', category: 'classics', title: 'Малката русалка' },
-            
             // PIXAR
             { file: 'toy-story-2.jpg', category: 'pixar', title: 'Играта на играчките' },
             { file: 'nemo.jpg', category: 'pixar', title: 'Търсенето на Немо' },
@@ -97,7 +98,6 @@ if (modal && closeBtn) {
             { file: 'brave-heart.jpg', category: 'pixar', title: 'Храбро сърце' },
             { file: 'cars.jpg', category: 'pixar', title: 'Колите' },
             { file: 'up.jpg', category: 'pixar', title: 'В небето' },
-
             // MARVEL
             { file: 'iron-man.jpg', category: 'marvel', title: 'Железният човек' },
             { file: 'deadpull.jpg', category: 'marvel', title: 'Дедпул' },
@@ -109,7 +109,6 @@ if (modal && closeBtn) {
             { file: 'spiderman1.jpg', category: 'marvel', title: 'Спайдър-мен' },
             { file: 'iron-man1.jpg', category: 'marvel', title: 'Железният човек' },
             { file: 'dr-strange1.jpg', category: 'marvel', title: 'Доктор Стрейндж' },
-
             // STAR WARS
             { file: 'darth-vader.jpg', category: 'starwars', title: 'Дарт Вейдър' },
             { file: 'mandalorian.jpg', category: 'starwars', title: 'Мандалорецът' },
@@ -121,13 +120,19 @@ if (modal && closeBtn) {
             grid.innerHTML = ''; 
             imagesData.forEach(img => {
                 if (category === 'all' || img.category === category) {
+                    // Изчисляваме динамичния път
+                    const folder = categoryPaths[img.category] || 'pictures/';
+                    const fullPath = folder + img.file;
+
                     const item = document.createElement('div');
                     item.className = 'gallery-item';
-                    // Добавяме функцията за отваряне при клик
-                    item.setAttribute('onclick', `openLightbox('pictures/${img.file}', '${img.title}')`);
+                    
+                    // Подаваме пълния път към снимката за Lightbox
+                    item.setAttribute('onclick', `openLightbox('${fullPath}', '${img.title}')`);
+                    
                     item.innerHTML = `
-                        <img src="pictures/${img.file}" alt="${img.title}">
-                        <div class="item-overlay"><i class="fas fa-expand"></i></div>
+                        <img src="${fullPath}" alt="${img.title}">
+                        <div class="gallery-item-overlay"><i class="fas fa-expand"></i></div>
                     `;
                     grid.appendChild(item);
                 }
@@ -140,17 +145,14 @@ if (modal && closeBtn) {
             filterSelect.addEventListener('change', (e) => displayImages(e.target.value));
         }
 
-        /* --- ЛОГИКА ЗА ЗАТВАРЯНЕ НА LIGHTBOX --- */
-        // Затваряне при клик на X
         const closeLightboxBtn = document.querySelector('#galleryLightbox .close-modal');
         if (closeLightboxBtn) {
             closeLightboxBtn.onclick = () => {
                 lightbox.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Връщаме скрола
+                document.body.style.overflow = 'auto';
             };
         }
 
-        // Затваряне при клик извън снимката
         window.addEventListener('click', (event) => {
             if (event.target == lightbox) {
                 lightbox.style.display = 'none';
@@ -160,16 +162,15 @@ if (modal && closeBtn) {
     }
 });
 
-/* --- ГЛОБАЛНА ФУНКЦИЯ ЗА ОТВАРЯНЕ (извън DOMContentLoaded за достъпност) --- */
 function openLightbox(src, title) {
     const lightbox = document.getElementById('galleryLightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxTitle = document.getElementById('lightboxTitle');
 
     if (lightbox && lightboxImg && lightboxTitle) {
-        lightboxImg.src = src; // Задаваме пътя до снимката
-        lightboxTitle.innerText = title; // Задаваме заглавието
-        lightbox.style.display = 'block'; // Показваме прозореца
-        document.body.style.overflow = 'hidden'; // Спираме скрола на страницата
+        lightboxImg.src = src; 
+        lightboxTitle.innerText = title; 
+        lightbox.style.display = 'block'; 
+        document.body.style.overflow = 'hidden'; 
     }
 }

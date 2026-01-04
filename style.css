@@ -155,7 +155,7 @@ footer {
 }
 
 /* --- GLOBAL COMPONENTS --- */
-/* Magic Button (used on multiple pages) */
+/* Magic Button */
 .magic-button {
     position: relative;
     z-index: 15;
@@ -173,6 +173,7 @@ footer {
     box-shadow: 0 5px 15px rgba(0,0,0,0.3), 0 0 20px rgba(212, 175, 55, 0.5);
     transition: all 0.3s ease;
     border: 2px solid #fff;
+    cursor: pointer;
 }
 
 .magic-button:hover {
@@ -182,19 +183,19 @@ footer {
     color: #d4af37;
 }
 
-/* Section Title (used on multiple pages) */
+/* Section Title */
 .section-title {
     font-family: 'Great Vibes', cursive !important;
-    font-size: 60px !important; /* Увеличен размер като на скрийншота */
+    font-size: 55px !important;
     color: #dbcb99 !important;
     margin-bottom: 35px !important;
-    text-align: center !important; /* Ляво подравняване за двата раздела */
+    text-align: center !important;
     text-shadow: 0 0 15px rgba(88, 76, 35, 0.8), 2px 2px 10px rgba(213, 200, 147, 0.6) !important;
     width: 100%;
     display: block;
 }
 
-/* Modal (used on multiple pages) */
+/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -208,7 +209,7 @@ footer {
 }
 
 .modal-content {
-    background: rgba(6, 36, 97, 0.95);
+    background: linear-gradient(135deg, #071c5c 0%, #575d8a 100%);
     margin: 5% auto;
     padding: 40px;
     border: 2px solid #d4af37;
@@ -257,76 +258,27 @@ footer {
     margin-top: 20px;
 }
 
-/* --- GLOBAL UTILITY CLASSES --- */
+/* Global Utility Classes */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 .container-main {
     padding: 80px 20px;
     max-width: 1100px;
     margin: 0 auto;
 }
 
-.container-title {
-    color: #d4af37;
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-}
-
-.achievements-box {
-    padding: 60px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px; /* Разстояние между кръговете */
-    flex-wrap: wrap;
-}
-
-.stat-item {
-    width: 200px; /* Еднаква ширина */
-    height: 200px; /* Еднаква височина за идеален кръг */
-    border: 3px solid #d4af37; /* Златна рамка */
-    border-radius: 50%; /* Прави елемента кръг */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.05); /* Леко прозрачен фон */
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); /* Златно сияние */
-    transition: all 0.4s ease;
-}
-
-/* Ефект при посочване на кръга */
-.stat-item:hover {
-    transform: scale(1.1) rotate(5deg);
-    background: rgba(212, 175, 55, 0.1);
-    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
-    border-color: #fbe496;
-}
-
-.stat-item h3 {
-    color: #fbe496;
-    font-size: 2.5rem;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-}
-
-.stat-item p {
-    color: white;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 5px;
-}
-
 /* ===================================================================
-   INDEX/HOME PAGE STYLES
+   PAGE: INDEX / HOME
    =================================================================== */
-/* Hero Section with Video */
-.index-page{
+.index-page {
     padding-top: 50px;
     background: linear-gradient(135deg, #101d52 0%, #3f4d73 100%);
 }
+
 .index-hero {
     position: relative;
     width: 100%;
@@ -374,7 +326,8 @@ footer {
     margin-bottom: 20px;
     text-shadow: 0 0 15px rgba(212, 175, 55, 0.8), 2px 2px 10px rgba(0,0,0,0.6);
 }
-.brands-bar {
+
+.index-brands-bar {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -383,54 +336,59 @@ footer {
     flex-wrap: wrap;
 }
 
-.brand-item img {
+.index-brand-item img {
     height: 45px;
     opacity: 0.6;
-    filter: brightness(0) invert(1); /* Прави ги бели */
+    filter: brightness(0) invert(1);
     transition: 0.4s ease;
 }
 
-.brand-item:hover img {
+.index-brand-item:hover img {
     opacity: 1;
     transform: scale(1.1);
-    filter: none; /* Връща оригиналните цветове при посочване */
+    filter: none;
 }
 
-/* --- СЕКЦИЯ МАГИЧЕСКИ АКЦЕНТИ (Highlights) --- */
-.magic-highlights {
-    padding: 40px 20px; /* Малко по-малко padding горе/долу */
-    
+.index-magic-highlights {
+    padding: 40px 20px;
 }
 
-.highlights-container {
+.index-highlights-container {
     display: grid;
-    /* Увеличаваме minmax на 350px за по-широки карти и 
-       слагаме max-width на 95%, за да запълни екрана */
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 20px; /* Намалено разстояние между картите (беше 30px) */
-    max-width: 95%; /* По-широк контейнер (беше 1200px) */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 95%;
     margin: 0 auto;
-    
 }
 
-.highlight-card img {
+.index-highlight-card {
+    display: inline-block;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+}
+
+.index-highlight-card:hover {
+    transform: scale(1.02);
+    border-color: #d4af37;
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+}
+
+.index-highlight-card img {
     width: 100%;
-    height: 250px; /* Можете да промените тази стойност (напр. 220px или 280px), докато ви хареса */
-    object-fit: cover; /* Важно: реже снимката, за да запълни пространството без да я разтегля */
+    height: 250px;
+    object-fit: cover;
     display: block;
     background: #062461;
     border-bottom: 3px solid #d4af37;
 }
 
-/* 2. Фиксираме височината на текстовия контейнер под снимката */
-.highlight-card h3 {
-    /* Премахваме flex-grow, за да не се разтяга автоматично */
+.index-highlight-card h3 {
     flex-grow: 0; 
-    
-    /* Задаваме фиксирана височина за черния/тъмносиния контейнер */
-    height: 90px; /* Настройте спрямо дължината на текста ви */
-    
-    /* Запазваме центрирането */
+    height: 90px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -443,59 +401,57 @@ footer {
     font-size: 1.2rem;
 }
 
-/* Помощно правило за самата карта, за да изглежда подредено */
-.highlight-card {
-    display: inline-block;
+.index-achievements-box {
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.index-stat-item {
+    width: 200px;
+    height: 200px;
+    border: 3px solid #d4af37;
+    border-radius: 50%;
+    display: flex;
     flex-direction: column;
-    height: 100%; /* Гарантира, че картите в един ред са с еднаква обща височина */
-    border-radius: 20px;
-    overflow: hidden;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    transition: all 0.3s ease;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    transition: all 0.4s ease;
 }
 
-.highlight-card:hover {
-    transform: scale(1.02);
-    border-color: #d4af37;
-    /* Добавяме и светене при посочване */
-    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+.index-stat-item:hover {
+    transform: scale(1.1) rotate(5deg);
+    background: rgba(212, 175, 55, 0.1);
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+    border-color: #fbe496;
 }
 
-/* Main Content Section */
-/* .index-main {
-    background: #233069;
-} */
+.index-stat-item h3 {
+    color: #fbe496;
+    font-size: 2.5rem;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+}
 
-
-
-
-/* Златен бадж по образеца на "New" от Dropbox */
-.magic-badge {
-    background: linear-gradient(135deg, #fbe496 0%, #d4af37 100%);
-    color: #062461;
-    padding: 5px 15px;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: bold;
+.index-stat-item p {
+    color: white;
+    font-size: 0.9rem;
     text-transform: uppercase;
-    display: inline-block;
-    margin-bottom: 20px;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+    letter-spacing: 1px;
+    margin-top: 5px;
 }
 
-.section-title {
-    font-family: 'Great Vibes', cursive;
-    font-size: 4.5rem; /* Голямо заглавие като в скрийншота */
-    color: #dbcb99;
-    margin-bottom: 30px;
-    text-align: left;
-    text-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
-}
 /* ===================================================================
-   ABOUT PAGE STYLES
+   PAGE: ABOUT
    =================================================================== */
-
-   .about-page {
+.about-page {
     background: linear-gradient(135deg, #071c5c 0%, #575d8a 100%);
 }
 
@@ -503,8 +459,7 @@ footer {
     position: relative;
     height: 60vh;
     min-height: 400px;
-    background: url('pictures/about-hero.JPG') no-repeat center center/cover;
-    /* margin-top: 75px; */
+    background: url('pictures/about/about-hero.JPG') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -512,10 +467,10 @@ footer {
     color: white;
     border-bottom: 1px solid rgba(212, 175, 55, 0.8);
 }
+
 .hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    /* Тъмносин полупрозрачен слой */
     background: rgba(6, 36, 97, 0.6); 
 }
 
@@ -524,12 +479,16 @@ footer {
     z-index: 2;
 }
 
-.about-hero-title {
-    font-family: 'Great Vibes', cursive;
-    font-size: 5rem;
-    color: #d4af37;
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-    margin-bottom: 10px;
+.about-section-title {
+    font-family: 'Great Vibes', cursive !important;
+    font-size: 55px !important;
+    color: #dbcb99 !important;
+    margin-bottom: 30px !important;
+    text-align: center !important;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.8) !important;
+    white-space: nowrap; 
+    width: auto;
+    display: block;
 }
 
 .about-hero-subtitle {
@@ -540,44 +499,27 @@ footer {
 }
 
 .about-main-content {
-    padding-top: 30px 60px!important;
+    padding-top: 30px;
 }
+
 .about-container-main {
-    max-width: 1400px; /* Трябва да е идентична с тази на долната мрежа */
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 40px; 
     width: 100%;
-    
 }
 
-.about-section-title {
-    font-family: 'Great Vibes', cursive !important;
-    font-size: 4.5rem !important;
-    color: #dbcb99 !important;
-    margin-bottom: 30px !important;
-    text-align: center !important;
-    text-shadow: 0 0 15px rgba(212, 175, 55, 0.8) !important;
-    
-    /* ТАЗИ ЛИНИЯ ГАРАНТИРА ЕДИН РЕД */
-    white-space: nowrap; 
-    
-    /* Премахваме всякакви вътрешни ограничения */
-    width: auto;
-    display: block;
-}
 .about-grid {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 80px; /* Намаляваме малко гапа, за да дадем място на дългото заглавие */
+    gap: 80px;
 }
 
 .about-text {
-    /* Даваме малко повече тежест на текстовата част */
     flex: 1.5; 
-    text-align: left;
-    min-width: 0; /* Важно за предотвратяване на излизане от контейнера */
     text-align: justify;
+    min-width: 0;
 }
 
 .about-image {
@@ -588,16 +530,9 @@ footer {
 }
 
 .about-image img {
-    width: 100%; /* Заема цялата налична ширина на колоната */
-    
-    /* ПРОМЕНЕТЕ ТОВА: Задайте желаната височина */
-    height: 490px; /* Можете да пробвате с 400px, 500px и т.н., докато ви хареса */
-    
-    /* ВАЖНО: Това предотвратява сплескването на снимката */
-    object-fit: cover; 
-    /* object-position: center top; - Ако искате да се вижда повече върха на замъка, добавете този ред */
-
-    /* Запазете останалите стилове за красота */
+    width: 100%;
+    height: 490px;
+    object-fit: cover;
     border-radius: 15px;
     border: 2px solid #d4af37;
     box-shadow: 0 25px 50px rgba(0,0,0,0.5);
@@ -605,9 +540,9 @@ footer {
 }
 
 .about-image img:hover {
-    transform: scale(1.02); /* Леко "дишане" при посочване */
+    transform: scale(1.02);
 }
-/* Групиране на бутоните в един ред */
+
 .button-group-row {
     display: flex;
     align-items: center;
@@ -615,73 +550,43 @@ footer {
     margin-top: 40px;
 }
 
-/* Твоят оригинален линк, но по-стилизиран */
-.gold-link {
-    color: #fbe496;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
-    transition: 0.3s;
-    border-bottom: 1px solid transparent;
-}
-
-.gold-link:hover {
-    color: white;
-    border-bottom: 1px solid #fbe496;
-}
-.about-mission-vision-container{
-    max-width: 1400px; /* Увеличена ширина от 1100px на 1400px */
-    margin: 0 auto;
-    padding: 0 50px; /* Повече „въздух“ отстрани */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Центрира съдържанието хоризонтално */
-}
-
-/* 1. Намаляваме общата височина на грида */
-.mission-vision-grid {
+.about-mission-vision-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
     align-items: stretch;
-    max-width: 1200px; /* Малко по-сбито спрямо 1400px */
+    max-width: 1200px;
     margin: 70px auto;
     padding: 0 40px;
 }
 
-/* 2. Свиваме кутията */
-.glass-card {
+/* About Glass Card */
+.about-glass-card {
     display: flex;
     flex-direction: column;
-    padding: 40px; /* Намалено от 50px на 30px за по-малка височина */
+    padding: 40px;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(212, 175, 55, 0.3);
     border-radius: 25px;
     text-align: center;
-    min-height: auto; /* Премахваме твърдата минимална височина */
+    min-height: auto;
 }
 
-/* 3. Оправяме заглавието и премахваме двойната линия */
-.glass-card h2 {
+.about-glass-card h2 {
     font-family: 'Cinzel', serif;
     color: #fbe496;
     font-size: 1.8rem;
-    
-    /* ФИКСИРАНЕ НА НИВОТО: Намаляваме мястото за заглавието */
     height: 60px; 
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    
-    /* ПРЕМАХВАМЕ border-bottom, ако го има, за да няма двойна линия */
     border-bottom: none !important; 
     position: relative;
 }
 
-/* Единствената златна линия под заглавието */
-.glass-card h2::after {
+.about-glass-card h2::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -691,59 +596,35 @@ footer {
     background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.8), transparent);
 }
 
-/* 4. Текстът - центриран и без излишно разтягане */
-.glass-card p {
-    /* font-size:17px; */
+.about-glass-card p {
     line-height: 1.6;
     margin: 0;
     color: #ffffff;
     display: flex;
     align-items: center;
     text-align: justify;
-    min-height: 100px; /* Ограничава височината на текстовия блок */
-}
-.values-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    text-align: center;
+    min-height: 100px;
 }
 
-.value-box i {
-    font-size: 2.5rem;
-    color: #d4af37;
-    margin-bottom: 15px;
-    display: block;
-}
-.timeline{
+.about-timeline {
     background: linear-gradient(135deg, #101d52 0%, #3f4d73 100%);
     border-top: 1px solid rgba(212, 175, 55, 0.8);
     padding-top: 40px;
 }
 
-.timeline-section {
-    padding: 80px 0;
-    background: transparent;
-    /* Спира всякакви елементи да излизат извън тази секция */
-    overflow: hidden; 
-    position: relative;
-    
-}
-
-.timeline-container {
+.about-timeline-container {
     max-width: 1400px;
     margin: 60px auto 0 auto;
-    /* ТОВА Е НАЙ-ВАЖНОТО: Прави контейнера "котва" за линията */
     position: relative; 
     min-height: 200px;
     padding-bottom: 60px;
 }
-/* ЦЕНТРАЛНАТА ЛИНИЯ - ФИКСИРАНА */
-.timeline-container::before {
+
+.about-timeline-container::before {
     content: '';
     position: absolute;
-    top: 0; /* Линията започва точно от началото на контейнера */
-    bottom: 0; /* И завършва точно в края му */
+    top: 0; 
+    bottom: 0; 
     left: 50%;
     width: 4px;
     background: linear-gradient(to bottom, 
@@ -753,32 +634,31 @@ footer {
         rgba(212, 175, 55, 0) 100%
     );
     transform: translateX(-50%);
-    z-index: 1; /* Да е под балончетата */
+    z-index: 1; 
 }
 
-/* БАЛОНЧЕТАТА */
-.timeline-row {
+.about-timeline-row {
     display: flex;
-    justify-content: flex-end; /* Лявата кутия е до центъра */
+    justify-content: flex-end;
     padding-right: 50%;
     position: relative;
     padding-bottom: 25px;
     width: 100%;
 }
 
-.timeline-row.right {
-    justify-content: flex-start; /* Дясната кутия е след центъра */
+.about-timeline-row.right {
+    justify-content: flex-start;
     padding-right: 0;
     padding-left: 50%;
 }
 
-.glass-bubble {
+.about-glass-bubble {
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(12px);
     border: 2px solid rgba(212, 175, 55, 0.5);
     border-radius: 25px;
     padding: 25px 35px;
-    max-width: 1000px; /* Ширина на балончето */
+    max-width: 1000px;
     margin: 0 40px;
     position: relative;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
@@ -786,14 +666,13 @@ footer {
     z-index: 5;
 }
 
-.glass-bubble:hover {
+.about-glass-bubble:hover {
     transform: scale(1.05);
     background: rgba(212, 175, 55, 0.1);
     border-color: #fbe496;
 }
 
-/* Златната точка върху линията */
-.timeline-row::after {
+.about-timeline-row::after {
     content: '';
     position: absolute;
     width: 20px;
@@ -808,18 +687,22 @@ footer {
     box-shadow: 0 0 15px #d4af37;
 }
 
-.year-bubble {
+.about-year-bubble {
     font-family: 'Cinzel', serif;
     color: #fbe496;
     font-size: 1.5rem;
     display: block;
     margin-bottom: 10px;
 }
+
+/* ===================================================================
+   PAGE: UNIVERSE
+   =================================================================== */
 .universe-hero {
     position: relative;
     height: 60vh;
     min-height: 400px;
-    background: url('pictures/universe-background.jpg') no-repeat center center/cover;
+    background: url('pictures/universe/universe-background.jpg') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -827,104 +710,165 @@ footer {
     color: white;
     border-bottom: 1px solid rgba(212, 175, 55, 0.8);
 }
-/* ===================================================================
-   UNIVERSE PAGE STYLES
-   =================================================================== */
 
-   .universe-main-content {
+.universe-main-content {
     background: linear-gradient(135deg, #071c5c 0%, #575d8a 100%);
-    }
+}
 
-    .universe-section {
-        padding: 30px 40px;
-    }
+.universe-section {
+    padding: 30px 40px;
+}
 
-    .universe-store-container {
-        align-items: center;
-    }
+.universe-flex {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
 
-    .universe-flex {
-        display: flex;
-        align-items: center;
-        gap: 60px;
-    }
+.universe-section.reverse .universe-flex {
+    flex-direction: row-reverse;
+}
 
-    .universe-section.reverse .universe-flex {
-        flex-direction: row-reverse;
-    }
+.universe-image {
+    flex: 1;
+}
 
-    .journey-image {
-        flex: 1;
-    }
+.universe-image img {
+    width: 100%;
+    border-radius: 30px;
+    object-fit: cover !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
 
-    .journey-image img {
-        width: 100%;
-        border-radius: 30px;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        border: 1px solid rgba(212, 175, 55, 0.3);
-    }
+.universe-text {
+    flex: 1;
+    padding: 50px !important;
+}
 
-    .journey-text {
-        flex: 1;
-        padding: 50px !important;
-    }
+.category {
+    color: #d4af37;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 15px;
+}
 
-    .category {
-        color: #d4af37;
-        text-transform: uppercase;
-        font-weight: bold;
-        letter-spacing: 2px;
-        font-size: 14px;
-        display: block;
-        margin-bottom: 15px;
-    }
+.universe-text h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 40px;
+    color: #fbe496;
+    margin-bottom: 20px;
+}
 
-    .journey-text h2 {
-        font-family: 'Cinzel', serif;
-        font-size: 40px;
-        color: #fbe496;
-        margin-bottom: 20px;
-    }
+.magic-link {
+    color: #d4af37;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    display: inline-block;
+    transition: 0.3s;
+}
 
-    .magic-link {
-        color: #d4af37;
-        text-decoration: none;
-        font-weight: bold;
-        margin-top: 20px;
-        display: inline-block;
-        transition: 0.3s;
-    }
+.magic-link:hover {
+    color: white;
+    transform: translateX(10px);
+}
 
-    .magic-link:hover {
-        color: white;
-        transform: translateX(10px);
-    }
+/* Universe Glass Card (Shared Style Duplicated) */
+.universe-glass-card {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 25px;
+    text-align: center;
+    min-height: auto;
+}
 
-    .stats-circle {
-        width: 300px;
-        height: 300px;
-        border: 2px solid #d4af37;
-        border-radius: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-        background: rgba(212, 175, 55, 0.05);
-        box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
-    }
+.universe-glass-card h2 {
+    font-family: 'Cinzel', serif;
+    color: #fbe496;
+    font-size: 1.8rem;
+    height: 60px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-bottom: none !important; 
+    position: relative;
+}
+
+.universe-glass-card h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.8), transparent);
+}
+
+.universe-glass-card p {
+    line-height: 1.6;
+    margin: 0;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+    min-height: 100px;
+}
+
+.universe-stats-circle {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    border: 2px solid #d4af37;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4); 
+    background: linear-gradient(rgba(26, 49, 100, 0.377), rgba(110, 123, 149, 0.7)), 
+                url('pictures/charity.jpg');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.universe-stats-circle-text {
+    color: #eeba0e;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+    text-align: center;
+}
 
 /* ===================================================================
-   NEWS PAGE STYLES
+   PAGE: NEWS
    =================================================================== */
-
 .news-page {
     background: linear-gradient(135deg, #071c5c 0%, #575d8a 100%);
     color: white;
 }
 
-.news-wrapper {
-    padding-top: 130px;
+.news-hero {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    background: url('pictures/news/hero-news.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.8);
 }
 
 .news-hero-grid {
@@ -932,18 +876,17 @@ footer {
     grid-template-columns: 2fr 1fr 1fr;
     grid-template-rows: repeat(2, 280px);
     gap: 15px;
-    margin: 60px;
+    margin: 60px 0;
 }
 
-.main-featured {
+.news-main-featured {
     grid-area: 1 / 1 / 3 / 2;
 }
 
-.side-featured {
+.news-side-featured {
     grid-area: 1 / 2 / 2 / 4;
 }
 
-/* News Cards */
 .news-card {
     position: relative;
     overflow: hidden;
@@ -972,7 +915,7 @@ footer {
     z-index: 2;
 }
 
-.category-badge {
+.news-category-badge {
     background: #d4af37;
     color: #062461;
     padding: 4px 12px;
@@ -984,17 +927,16 @@ footer {
     display: inline-block;
 }
 
-.main-featured h2 {
+.news-main-featured h2 {
     font-size: 2rem;
     margin-bottom: 10px;
     font-family: 'Montserrat', sans-serif;
 }
 
-.side-featured h3 {
+.news-side-featured h3 {
     font-size: 1.4rem;
 }
 
-/* News Archive Grid */
 .glow-title {
     font-family: 'Great Vibes', cursive;
     font-size: 40px;
@@ -1008,51 +950,325 @@ footer {
 .news-archive-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    margin: 40px 60px;
+    margin: 40px 0;
     gap: 20px;
 }
 
-.archive-card {
+.news-archive-card {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 15px;
     overflow: hidden;
     border: 1px solid rgba(212, 175, 55, 0.2);
     transition: 0.3s;
-    
 }
 
-.archive-card:hover {
+.news-archive-card:hover {
     transform: translateY(-10px);
     border-color: #d4af37;
 }
 
-.archive-img img {
+.news-archive-img img {
     width: 100%;
     height: 200px;
     object-fit: cover;
 }
 
-.archive-body {
+.news-archive-body {
     padding: 20px;
 }
 
-.archive-body h4 {
+.news-archive-body h4 {
     color: #dbcb99;
     text-shadow: 0 0 15px rgba(255, 247, 223, 0.4), 2px 2px 10px rgba(0,0,0,0.6);
     font-size: 1.2rem;
     margin: 10px 0;
 }
 
-.read-more {
+.news-read-more {
     color: white;
     text-decoration: none;
     font-size: 0.9rem;
     font-weight: bold;
 }
 
+/* ===================================================================
+   PAGE: GALLERY
+   =================================================================== */
+.gallery-page {
+    padding-bottom: 80px;
+    background: linear-gradient(135deg, #071c5c 0%, #575d8a 100%);
+}
+
+.gallery-hero {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    background: url('pictures/gallery/hero-gallery.jpg') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.8);
+}
+
+.gallery-controls {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.gallery-filter-box {
+    background: rgba(255, 255, 255, 0.03); 
+    backdrop-filter: blur(18px); 
+    -webkit-backdrop-filter: blur(18px);
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    border-radius: 100px; 
+    padding: 12px 50px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 15px 25px rgba(66, 66, 66, 0.6), 
+                0 0 15px rgba(255, 238, 181, 0.1);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-filter-box:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: rgba(212, 175, 55, 0.8);
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 
+                0 0 25px rgba(212, 175, 55, 0.3);
+}
+
+.gallery-filter-box select {
+    background: transparent !important;
+    color: #fbe496;
+    border: none !important;
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Cinzel', serif; 
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    appearance: none; 
+    -webkit-appearance: none;
+}
+
+.gallery-filter-box select option {
+    background: #062461;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    padding: 15px;
+    font-size: 1rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 60px;
+}
+
+.gallery-item {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 30px;
+    padding: 0 !important; 
+}
+
+.gallery-item img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; 
+    display: block !important;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(6, 36, 97, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.3s;
+    color: #d4af37;
+    font-size: 2rem;
+}
+
+.gallery-item:hover .gallery-item-overlay {
+    opacity: 1;
+}
+
+/* Lightbox specific overrides */
+#galleryLightbox .modal-content {
+    background: linear-gradient(135deg, #071c5c 0%, #575d8a 100%);
+    backdrop-filter: blur(15px);
+    border: 2px solid #d4af37;
+    max-width: 1000px;
+    width: 90%;
+    text-align: center;
+    padding: 20px;
+}
+
+#lightboxImg {
+    width: 100%;
+    max-height: 75vh;
+    object-fit: contain;
+    border-radius: 10px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+#lightboxTitle {
+    font-family: 'Cinzel', serif;
+    color: #fbe496;
+    margin-top: 20px;
+    font-size: 1.8rem;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
 
 /* ===================================================================
-   GLOBAL MEDIA QUERIES - Responsive styles for all pages
+   PAGE: CONTACTS
+   =================================================================== */
+body.contact-page {
+    background: url('pictures/contacts/contact-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body.contact-page::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(4, 22, 58, 0.6);
+    z-index: -1;
+}
+
+.contact-page .contact-main-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 20px 80px 20px; 
+}
+
+.contact-glass-container {
+    width: 100%;
+    max-width: 1000px;
+    max-height: 80vh; 
+    background: rgba(255, 255, 255, 0.01); 
+    backdrop-filter: blur(5px); 
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(212, 175, 55, 0.3); 
+    border-radius: 30px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; 
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+
+.contact-form-side {
+    padding: 60px;
+    border-right: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.contact-info-side {
+    padding: 60px;
+    background: rgba(0, 0, 0, 0.2); 
+}
+
+.contact-page h2 {
+    font-family: 'Cinzel', serif;
+    color: #dbcb99;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(178, 170, 143, 0.3);
+}
+
+.contact-input-group {
+    margin-bottom: 25px;
+}
+
+.contact-input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    color: #fbe496;
+}
+
+.contact-input-field {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 15px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.contact-input-field:focus {
+    outline: none;
+    border-color: #d4af37;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.error-msg {
+    color: #ff6b6b;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    font-weight: bold;
+    display: none; 
+}
+
+.label{
+    color: #dbcb99; 
+    font-weight: bold;
+}
+
+.contact-info-block {
+    margin-bottom: 15px;
+}
+
+.contact-info-block p {
+    font-size: 1.1rem;
+    margin-top: 5px;
+    padding: 10px 12px;
+}
+
+.contact-map-box {
+    width: 97%;
+    height: 170px;
+    border-radius: 15px;
+    border: 1px solid #d4af37;
+    margin-top: 10px;
+}
+
+/* ===================================================================
+   RESPONSIVE DESIGN (GLOBAL)
    =================================================================== */
 
 @media (max-width: 1024px) {
@@ -1125,160 +1341,118 @@ footer {
         transition: all 0.3s ease;
         display: inline-block;
     }
+    
     .nav-link-item:hover {
         color: #e5d397; 
         transform: scale(1.2);
         filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); 
     }
 
-
-@media (max-width: 768px) {
-    .stat-item {
-            width: 160px;
-            height: 160px;
-        }
-    .stat-item h3 {
-            font-size: 2rem;
-        }
-
-    /* about page */
-    .timeline-center-container::before {
-        left: 30px;
+    /* Page Specific Tablet Adjustments */
+    .about-section-title, .glow-title {
+        font-size: 3.5rem !important; 
+        white-space: normal !important; 
+        text-align: center !important;
+        width: 100% !important;
     }
 
-    .timeline-row {
-        width: 100%;
-        padding-left: 70px; 
-        padding-right: 20px;
-        margin-bottom: 30px;
+    .universe-flex, 
+    .universe-section.reverse .universe-flex {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 30px !important;
     }
 
-    .timeline-row.left,
-    .timeline-row.right {
-        left: 0;
-        text-align: left; 
+    .universe-text.universe-glass-card {
+        width: 100% !important;
+        max-width: 700px !important; 
+        padding: 40px !important; 
+        order: 2;
     }
 
-    .timeline-row.left::after,
-    .timeline-row.right::after {
-        left: 18px; 
+    .universe-image {
+        width: 100% !important;
+        max-width: 600px !important;
+        order: 1;
+        height: 350px; 
     }
 
-    .timeline-row.left .glass-bubble::before,
-    .timeline-row.right .glass-bubble::before {
-        left: -42px;
-        width: 40px;
+    .universe-image img {
+        height: 350px !important; 
+    }
+
+    .about-glass-card h2, .universe-glass-card h2 {
+        height: auto !important;
+        padding-bottom: 20px !important;
+        font-size: 2.2rem !important;
     }
     
-    .year-bubble {
-        font-size: 1.5rem;
+    /* Gallery Page */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
     }
 }
 
-
-    /* Gallery Page */
-    .container-main, 
-    .gallery-section { 
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-        padding-top: 40px !important; 
-        padding-bottom: 40px !important;
+@media (max-width: 900px) {
+    /* Contacts Page */
+    .contact-glass-container {
+        grid-template-columns: 1fr;
+        max-height: none;
+        overflow-y: visible;
+        width: 95%;
     }
 
-    #gallery-grid, .gallery-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 10px !important; 
-        padding: 0 !important; 
-        margin: 20px 0 !important;
+    .contact-form-side, .contact-info-side {
+        padding: 30px 20px;
+        border-right: none; 
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
     }
 
-    .gallery-item img {
-        height: 180px !important; 
-        object-fit: cover;
+    body.contact-page {
+        overflow: auto;
+        height: auto;
     }
-
-    .gallery-controls {
-        flex-direction: column !important;
-        align-items: center !important; 
-        width: 100% !important;
-        margin-bottom: 25px !important;
-    }
-
-
-    filter-container {
-        width: auto !important;     
-        max-width: 85% !important;  
-    }
-
-    select#movie-filter {
-        width: auto !important;       
-        min-width: 200px !important;  
-        max-width: 100% !important;   
-        font-size: 0.9rem !important; 
-        padding: 8px 30px 8px 12px !important; 
-        white-space: nowrap !important; 
-        overflow: hidden !important;   
-        text-overflow: ellipsis !important; 
-        border-radius: 20px !important;
-    }
-
-    select#movie-filter optgroup,
-    select#movie-filter option {
-        font-size: 10px !important;
-        padding: 5px !important;
-    }
-
-    /* News Page */
-    .news-hero-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
-    }
-
-    .main-featured {
-        grid-area: auto;
-        grid-column: span 2;
-        height: 400px;
-    }
-
-    .side-featured {
-        grid-area: auto;
-        grid-column: span 2;
-        height: 300px;
-    }
-
 }
 
 @media (max-width: 768px) {
-    .achievements-box {
+    /* General */
+    .section-title {
+        font-size: 3rem !important;
+    }
+
+    /* Index Page */
+    .index-achievements-box {
         gap: 15px; 
     }
     
-    .stat-item {
+    .index-stat-item {
         flex: 0 0 110px; 
         height: 110px;
+        width: 110px;
     }
     
-    .stat-item h3 {
+    .index-stat-item h3 {
         font-size: 1.2rem;
     }
     
-    .stat-item p {
+    .index-stat-item p {
         font-size: 0.6rem;
     }
 
     /* News Page */
     .news-hero-grid {
         grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        margin: 30px 0;
     }
 
-    .main-featured,
-    .side-featured {
+    .news-main-featured,
+    .news-side-featured {
         grid-column: span 1;
         height: 350px;
     }
 
-    .main-featured h2 {
+    .news-main-featured h2 {
         font-size: 1.5rem;
     }
 
@@ -1286,19 +1460,19 @@ footer {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important; 
-        margin: 20px auto !important; 
-        padding: 0 20px !important;
+        margin: 20px 0 !important; 
+        padding: 0 !important;
         width: 100% !important;
         gap: 25px !important;
     }
 
-    .archive-card {
+    .news-archive-card {
         width: 100% !important;
         max-width: 350px !important; 
         margin: 0 auto !important;
     }
 
-    .archive-body {
+    .news-archive-body {
         text-align: center !important;
         display: flex !important;
         flex-direction: column !important;
@@ -1312,12 +1486,12 @@ footer {
     }
 
     /* About Page */
-    .about-hero {
+    .about-hero, .gallery-hero, .universe-hero, .news-hero {
         height: 50vh;
     }
 
-    .about-section-title, .section-title {
-        font-size: 2.8rem !important; 
+    .about-section-title {
+        font-size: 30px !important; 
         white-space: normal !important; 
         text-align: center !important;
         line-height: 1.2;
@@ -1332,18 +1506,6 @@ footer {
         padding: 20px !important;
     }
 
-    /* Universe Page */
-    .universe-hero-section {
-        height: 500px;
-    }
-
-    .glow-title-hero {
-        font-size: 56px;
-    }
-
-    .hero-subtitle {
-        font-size: 18px;
-    }
     .about-grid {
         flex-direction: column; 
         gap: 30px;
@@ -1367,75 +1529,142 @@ footer {
         justify-content: center;
     }
 
-    .mission-vision-grid {
+    .about-mission-vision-grid {
         grid-template-columns: 1fr; 
         gap: 20px;
         padding: 0 10px;
     }
 
-    .glass-card {
+    .about-glass-card {
         padding: 25px;
     }
 
-    .glass-card h2 {
+    .about-glass-card h2 {
         font-size: 1.5rem;
         height: auto;
         margin-bottom: 15px;
     }
 
-    .timeline-container::before {
+    .about-timeline-container::before {
         left: 20px;
         transform: none;
     }
 
-    .timeline-row, .timeline-row.right {
+    .about-timeline-row, .about-timeline-row.right {
         padding-left: 50px;
         padding-right: 10px;
         justify-content: flex-start;
         text-align: left;
     }
 
-    .timeline-row::after {
+    .about-timeline-row::after {
         left: 20px;
     }
 
-    .glass-bubble {
+    .about-glass-bubble {
         max-width: 100%;
         margin: 0;
         padding: 15px 20px;
     }
 
-    .year-bubble {
+    .about-year-bubble {
         font-size: 1.2rem;
     }
-    .universe-flex, 
-    .universe-section.reverse .universe-flex {
-        flex-direction: column !important;
-        gap: 20px;
-        padding: 0;
+
+    /* Gallery Page */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        margin: 30px !important;
     }
 
-    .journey-text {
-        padding: 30px 20px !important;
-        text-align: center;
-        order: 2; 
+    .gallery-controls {
+        flex-direction: column;
+        align-items: stretch;
     }
 
-    .journey-image {
-        width: 100%;
-        order: 1; 
+    #lightboxTitle { font-size: 1.2rem; }
+}
+
+@media (max-width: 600px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .gallery-controls { flex-direction: column; }
+}
+
+@media (max-width: 480px) {
+    /* Index Page */
+    .index-hero-title {
+        font-size: 3rem !important;
     }
 
-    .journey-image img {
-        border-radius: 20px;
-        height: auto;
-        max-height: 250px;
-        object-fit: cover;
+    .index-brands-bar {
+        gap: 20px !important;
+        padding: 20px 10px !important;
     }
 
-    .stats-circle {
-        width: 220px;
-        height: 220px;
-        margin: 20px auto;
+    .index-brand-item img {
+        height: 30px !important;
+    }
+
+    .index-achievements-box {
+        padding: 20px 10px !important;
+    }
+
+    .index-stat-item {
+        width: 130px !important;
+        height: 130px !important;
+    }
+    
+    .index-highlights-container {
+        grid-template-columns: 1fr !important;
+        padding: 0 15px !important;
+    }
+
+    .index-highlight-card img {
+        height: 200px !important;
+    }
+    
+    /* Universe Page */
+    .universe-section {
+        padding: 20px 10px !important;
+    }
+
+    .universe-text.universe-glass-card {
+        padding: 25px 15px !important;
+        width: 100% !important;
+    }
+
+    .universe-text h2 {
+        font-size: 1.5rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .universe-text, .universe-text p {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+        text-align: left !important;
+    }
+
+    .universe-stats-circle {
+        width: 180px !important;
+        height: 180px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .universe-stats-circle h3 {
+        font-size: 1.8rem !important;
+    }
+
+    /* Gallery Page */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 320px) {
+    .index-stat-item {
+        width: 110px !important;
+        height: 110px !important;
     }
 }
