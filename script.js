@@ -160,6 +160,61 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    /* --- 4. КОНТАКТНА ФОРМА --- */
+    const contactForm = document.getElementById('disneyContactForm');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (event) {
+            event.preventDefault(); // Спира изпращането, за да проверим полетата
+            
+            let isFormValid = true;
+
+            // Валидация за Име
+            const nameField = document.getElementById('userName');
+            const nameError = document.getElementById('nameError');
+            if (nameField.value.trim().length < 3) {
+                nameError.style.display = 'block';
+                nameField.style.borderColor = '#ff6b6b';
+                isFormValid = false;
+            } else {
+                nameError.style.display = 'none';
+                nameField.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+            }
+
+            // Валидация за Имейл
+            const emailField = document.getElementById('userEmail');
+            const emailError = document.getElementById('emailError');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailField.value)) {
+                emailError.style.display = 'block';
+                emailField.style.borderColor = '#ff6b6b';
+                isFormValid = false;
+            } else {
+                emailError.style.display = 'none';
+                emailField.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+            }
+
+            // Валидация за Съобщение
+            const messageField = document.getElementById('userMessage');
+            const messageError = document.getElementById('messageError');
+            if (messageField.value.trim().length < 10) {
+                messageError.style.display = 'block';
+                messageField.style.borderColor = '#ff6b6b';
+                isFormValid = false;
+            } else {
+                messageError.style.display = 'none';
+                messageField.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+            }
+
+            // Ако всичко е наред
+            if (isFormValid) {
+                alert('✨ Магическото съобщение е изпратено успешно! ✨');
+                this.reset(); // Изчиства формата
+            }
+        });
+    }
+
 });
 
 function openLightbox(src, title) {
