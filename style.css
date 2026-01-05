@@ -18,7 +18,7 @@ body {
 }
 
 /* Навигация */
-.nav-container {
+.navbar-container {
     display: flex;
     width: 100%;
     height: 75px;
@@ -30,7 +30,7 @@ body {
 }
 
 /* Магическата плавна арка */
-.nav-container::after {
+.navbar-container::after {
     content: '';
     position: absolute;
     left: 50%;
@@ -45,7 +45,7 @@ body {
     z-index: -1;
 }
 
-.nav {
+.navbar-menu {
     display: flex;
     align-items: center;
     background: transparent;
@@ -55,7 +55,7 @@ body {
     height: 100%;
 }
 
-.nav-logo img {
+.navbar-logo-desktop img {
     height: 80px;
     width: auto;
     position: relative;
@@ -65,12 +65,12 @@ body {
     padding-left: 37px;
 }
 
-.nav-logo img:hover {
+.navbar-logo-desktop img:hover {
     transform: scale(1.1);
     filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.8));
 }
 
-.nav-link-item {
+.navbar-link {
     text-decoration: none;
     color: white;
     font-family: 'Lucida Sans';
@@ -82,16 +82,16 @@ body {
     display: inline-block;
 }
 
-.nav-link-item:hover {
+.navbar-link:hover {
     color: #e5d397;
     transform: scale(1.2);
     filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
 }
 
-.mobile-menu-toggle {
+.navbar-toggle {
     display: none !important;
 }
-.mobile-logo {
+.navbar-logo-mobile {
     display: none;
 }
 
@@ -866,12 +866,41 @@ footer {
 
 @media (max-width: 768px) {
     .universe-table th, .universe-table td {
-        padding: 8px 5px !important;
-        font-size: 0.85rem !important;
-        white-space: nowrap;
+        display: block;
+        width: 100%;
+        text-align: right;
+        padding: 10px 15px;
+        position: relative;
+        border: none;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.1);
     }
+    
+    .universe-table thead {
+        display: none;
+    }
+    
+    .universe-table tr {
+        display: block;
+        margin-bottom: 20px;
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        border-radius: 10px;
+        background: rgba(0, 0, 0, 0.2);
+    }
+    
+    .universe-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-weight: bold;
+        color: #d4af37;
+        font-family: 'Cinzel', serif;
+        text-align: left;
+    }
+
     .universe-table {
-        min-width: 500px;
+        min-width: unset;
     }
 }
 
@@ -1289,7 +1318,7 @@ body.contact-page::before {
 
 @media (max-width: 1024px) {
     /* Navigation */
-    .nav-container {
+    .navbar-container {
         display: flex !important;
         flex-direction: row !important;
         justify-content: space-between !important;
@@ -1299,21 +1328,21 @@ body.contact-page::before {
         position: relative;
     }
 
-    .nav-container::after {
+    .navbar-container::after {
         display: none !important;
     }
 
-    .mobile-logo {
+    .navbar-logo-mobile {
         display: block !important;
         order: 2; 
     }
 
-    .mobile-logo img {
+    .navbar-logo-mobile img {
         height: 50px !important;
         width: auto;
     }
 
-    .mobile-menu-toggle {
+    .navbar-toggle {
         display: flex !important;
         order: 1;
         font-size: 26px;
@@ -1322,11 +1351,11 @@ body.contact-page::before {
         z-index: 1100;
     }
 
-    .nav .nav-logo {
+    .navbar-menu .navbar-logo-desktop {
         display: none !important;
     }
 
-    .nav {
+    .navbar-menu {
         background: rgba(6, 36, 97, 0.85) !important;
         backdrop-filter: blur(15px);
         border-left: 1px solid rgba(212, 175, 55, 0.2);
@@ -1346,11 +1375,11 @@ body.contact-page::before {
         padding: 0;
     }
 
-    .nav.active {
+    .navbar-menu.active {
         display: flex !important;
     }
 
-    .nav-link-item {
+    .navbar-link {
         font-size: 1.4rem !important;
         padding: 10px 0 !important;
         text-align: center;
@@ -1358,7 +1387,7 @@ body.contact-page::before {
         display: inline-block;
     }
     
-    .nav-link-item:hover {
+    .navbar-link:hover {
         color: #e5d397; 
         transform: scale(1.2);
         filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); 

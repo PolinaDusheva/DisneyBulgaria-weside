@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /* --- 1. МОБИЛНО МЕНЮ --- */
-    const menuBtn = document.querySelector('.mobile-menu-toggle');
-    const navMenu = document.querySelector('.nav');
+    const menuBtn = document.querySelector('.navbar-toggle');
+    const navMenu = document.querySelector('.navbar-menu');
 
     if (menuBtn && navMenu) {
         menuBtn.addEventListener('click', (e) => {
